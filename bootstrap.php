@@ -18,4 +18,3 @@ require_once __DIR__ . '/utils/customHelper.php';
 
 // require front controller
 require_once __DIR__ . '/controllers/PageController.php';
-// require_once __DIR__ . '/controllers/customPageController.php';
