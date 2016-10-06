@@ -42,7 +42,6 @@ function getPhotos(){
 	}
 
 	$content .= '</table>';
-	var_dump($content);
 	return $content;
 }
 
