@@ -26,12 +26,14 @@ function pageController()
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
-
             $main_view = '../views/ps_login.php';
             break;
         case '/adlister':
-            $main_view = '../views/adlister.php';
-
+            if(Auth::check()){
+                $main_view = '../views/adlister.php';
+            }else{
+                $main_view = '../views/ps_login.php';
+            }
             break;
 
         default:    // displays 404 if route not specified above
