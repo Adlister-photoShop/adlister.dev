@@ -1,3 +1,10 @@
+<?php
+session_start();
+// echo session_id();
+require_once __DIR__ . '/../bootstrap.php';
+// echo "Session id:". session_id(). "Global:". $_SESSION['LOGGED_IN_ID'];    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

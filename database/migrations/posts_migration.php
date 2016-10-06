@@ -13,6 +13,7 @@ $query = 'CREATE TABLE posts (
     description TEXT,
     price DOUBLE NOT NULL,
     date_posted DATE NOT NULL,
+    category VARCHAR(240),
     PRIMARY KEY (id),
     FOREIGN KEY (user_id)
     	REFERENCES users(id)

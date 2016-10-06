@@ -25,20 +25,27 @@ function pageController()
 
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
-
+        case '/':
+            $main_view = '../views/ps_login.php';
+            break;
+        case '/adlister':
+            $main_view = '../views/adlister.php';
+            break;
 
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';
             break;
     }
 
-    $data['main_view'] = $main_view;
-    //returns true or false if user logged in
+
+
+
     $data['login'] = logInFunction();
+    
     //get the table for the photos
     $data['tablePhotos'] = getPhotos();
     
-
+    $data['main_view'] = $main_view;
     
 
     return $data;
