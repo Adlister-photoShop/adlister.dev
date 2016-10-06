@@ -1,4 +1,32 @@
 <?php
+//function that will sign up the user and add it to the database
+function signUpFunction(){
+	if($_POST){
+		if(!empty(Input::get('name')) && !empty(Input::get('email')) && !empty(Input::get('password'))
+			&& !empty(Input::get('conPassword'))){
+
+			if(Input::get('password') == Input::get('conPassword')){
+				//register the user
+				$user = new User();
+				//hashing the password before saving it
+				$pass = password_hash(Input::get('password'), PASSWORD_DEFAULT);
+				$user->name = Input::get('name');
+				$user->email = Input::get('email');
+				$user->username = Input::get('email');
+				$user->password = $pass;
+				$user->save();
+
+				header("Location:/adlister");
+			}
+			else{
+				return "Passowrds do not match.";
+			}
+		}
+		else{
+			return "Check for empty inputs below.";
+		}
+	}
+}
 //function that checks for the user log in
 function logInFunction(){
 	$username = Input::get('email');	
@@ -10,7 +38,7 @@ function logInFunction(){
 		}
 	}
 	else if(Input::has('username') || Input::has('password')){
-		return  "Username/Email and password combination not found.";
+		return  "Email and password combination not found.";
 	}
 }
 
