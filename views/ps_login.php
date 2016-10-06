@@ -1,3 +1,9 @@
+<div class="container front">
+    <div class="banner">
+        <img src="/img/placeholder.png" class="bannerImg">
+    </div>
+</div>
+
 <div class="logInContainer">
     <div class="logInParent">
         <div class="logInToggle">
