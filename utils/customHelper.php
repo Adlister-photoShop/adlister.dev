@@ -1,21 +1,32 @@
 <?php
 //function that checks for the user log in
 function logInFunction(){
-	
+	echo "im running";
 	$username = Input::get('email');	
 	$password = Input::get('password');
-	// $location = "/authorized.php";
+	
 	// $errorMessage="";
+	$sessionId = session_id();
+	
 	if(Auth::attempt($username, $password)){
 		if(Auth::check()){
-			return true;
+			header("Location:/adlister");
 		}
-		die;
+		// else{
+		// 	header("Location:/");	
+		// }
+		// die;
 
 	}
 	else if(Input::has('username') || Input::has('password')){
-		return  false;
+		return  "Username/Email and password combination not found.";
 	}
+	// else if($sessionId != $_SESSION['LOGGED_IN_ID']){
+ //        // session_regenerate_id();
+ //        header("Location:/welcome.php");
+ //    }
+ //    echo "Session id: $sessionId". "Global:". $_SESSION['LOGGED_IN_ID'];    
+	
 }
 
 
@@ -44,5 +55,7 @@ function getPhotos(){
 	$content .= '</table>';
 	return $content;
 }
+
+
 
 ?>
