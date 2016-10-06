@@ -6,9 +6,7 @@
 
     </head>
     <body>
-
-        <?php require "../views/ps_navbar.php"; ?>
-
+        
         <div class="container front">
             <div class="banner">
                 <img src="/img/placeholder.png" class="bannerImg">
