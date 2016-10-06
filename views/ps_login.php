@@ -21,7 +21,7 @@
 
         <div class="signUp">
             <form method="POST">
-                <input type:="text" name="username" placeholder="Your Name" class="inputs">
+                <input type:="text" name="name" placeholder="Your Name" class="inputs">
                 <input type:="text" name="email" placeholder="Email" class="inputs">
                 <input type:="password" name="password" placeholder="Password" class="inputs">
                 <input type:="password" name="conPassword" placeholder="Confirm Password" class="inputs">

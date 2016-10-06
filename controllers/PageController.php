@@ -26,7 +26,11 @@ function pageController()
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
-            $main_view = '../views/ps_login.php';
+            if(Auth::check())
+                $main_view = '../views/adlister.php';
+            else{
+                $main_view = '../views/ps_login.php';
+            }
             break;
         case '/adlister':
             if(Auth::check()){
@@ -49,6 +53,8 @@ function pageController()
 
 
     $data['login'] = logInFunction();
+
+    $data['signUp'] = signUpFunction();
     
     //get the table for the photos
     $data['tablePhotos'] = getPhotos();
