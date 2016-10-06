@@ -8,10 +8,6 @@ function logInFunction(){
 		if(Auth::check()){
 			header("Location:/adlister");
 		}
-		else{
-                header("Location:/");
-                die;
-            }
 	}
 	else if(Input::has('username') || Input::has('password')){
 		return  "Username/Email and password combination not found.";
