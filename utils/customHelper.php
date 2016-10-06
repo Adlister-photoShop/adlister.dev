@@ -9,14 +9,18 @@ function signUpFunction(){
 				//register the user
 				$user = new User();
 				//hashing the password before saving it
-				$pass = password_hash(Input::get('password'), PASSWORD_DEFAULT);
 				$user->name = Input::get('name');
 				$user->email = Input::get('email');
 				$user->username = Input::get('email');
-				$user->password = $pass;
+				$user->password = Input::get('password');
+				//check for duplicates....
 				$user->save();
 
-				header("Location:/adlister");
+				if(Auth::attempt($user->username, Input::get('password'))){
+					header("Location:/adlister");
+					die();
+
+				}
 			}
 			else{
 				return "Passowrds do not match.";

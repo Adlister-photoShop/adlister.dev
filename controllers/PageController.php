@@ -55,7 +55,6 @@ function pageController()
     $data['login'] = logInFunction();
 
     $data['signUp'] = signUpFunction();
-    var_dump($data['signUp']);
     
     //get the table for the photos
     $data['tablePhotos'] = getPhotos();
