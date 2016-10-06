@@ -1,4 +1,8 @@
-
+<?php
+session_start();
+// echo session_id();
+require_once __DIR__ . '/../bootstrap.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">

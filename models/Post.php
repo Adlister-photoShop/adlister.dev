@@ -24,7 +24,7 @@ class Post extends Model {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         
-        //returning the array of all the posts
+        //returning the array of all the postsw
         return $results;
     }
 
