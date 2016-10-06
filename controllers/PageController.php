@@ -29,7 +29,15 @@ function pageController()
             $main_view = '../views/ps_login.php';
             break;
         case '/adlister':
-            $main_view = '../views/adlister.php';
+            if(Auth::check()){
+                $main_view = '../views/adlister.php';
+            }else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
+        case '/logout':
+            Auth::logout();
+            $main_view = '../views/ps_login.php';
             break;
 
         default:    // displays 404 if route not specified above

@@ -7,7 +7,7 @@
 <div class="sideText">
     <button class="logInExit">X</button>
     <div class="showProfile">Hello Username</div>
-    <div class="logout"><a href="../view/logout.php">Log Out</a></div>
+    <div class="logout"><a href="logout">Log Out</a></div>
     
     <div class="showProfile">Profile</div>
     <div class="showPost">Post Photo</div>
