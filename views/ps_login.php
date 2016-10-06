@@ -13,9 +13,6 @@
         
         <div class="logIn">
             <form method="POST" id="logIn">
-                <p id="errorMessageLogIn" hidden>
-                    Username/Email combination or password do not match.
-                </p>
                 <input type:="text" name="email" placeholder="Email" class="inputs" autofocus>
                 <input type:="password" name="password" placeholder="Password" class="inputs">
                 <button type="submit" class="logInBtn">Log in</button>
