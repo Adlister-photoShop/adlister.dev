@@ -1,7 +1,6 @@
 <?php
 //function that checks for the user log in
 function logInFunction(){
-	echo "im running";
 	$username = Input::get('email');	
 	$password = Input::get('password');
 	
