@@ -9,7 +9,7 @@
     <div class="showProfile">Hello Username</div>
     <div class="logout"><a href="logout">Log Out</a></div>
     
-    <div class="showProfile">Profile</div>
+    <div class="showProfile"><a href="logout">Profile</a></div>
     <div class="showPost">Post Photo</div>
     <div class="hline"></div>
     <form class="search">
@@ -19,49 +19,25 @@
     <div class="showPost">Catagories</div>
     <div class="list">
         <ul>
-            <li>Animals</li>
-            <li>Architectural</li>
-            <li>Cars</li>
-            <li>Nature</li>
-            <li>Portraits</li>
-            <li>Sports</li>
+            <li><a href="animals">Animals</a></li>
+            <li><a href="architectural">Architectural</a></li>
+            <li><a href="cars">Cars</a></li>
+            <li><a href="nature">Nature</a></li>
+            <li><a href="portraits">Portraits</a></li>
+            <li><a href="sports">Sports</a></li>
         </ul>
     </div>
     <div class="hline"></div>
     <div class="showPost">Sort</div>
     <div class="list">
         <ul>
-            <li>Name</li>
-            <li>Price</li>
-            <li>Date</li>
+            <li><a href="name">Name</a></li>
+            <li><a href="price">Price</a></li>
+            <li><a href="date_added">Date Added</a></li>
         </ul>
     </div>
 </div>
 
-<div class="main">
-    <div class="container-fluid body">
-        <table>
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr>
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr>
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr> 
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr>    
-        </table>
-    </div>
-</div>
+<?php require '../views/ads/index.php'; ?>
+
        
