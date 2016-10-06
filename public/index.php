@@ -6,7 +6,7 @@ require_once __DIR__ . '/../bootstrap.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Photo Shop</title>
+    <title>OooLister</title>
     <?php require '../views/partials/head.php'; ?>
 </head>
 <body>

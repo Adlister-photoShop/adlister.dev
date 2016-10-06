@@ -1,6 +1,4 @@
 <div class="logInContainer">
-    <button class="logInExit">X</button>
-    
     <div class="logInParent">
         <div class="logInToggle">
             <button class="logInShow">Log In</button>
@@ -12,7 +10,7 @@
                 <p id="errorMessageLogIn" hidden>
                     Username/Email combination or password do not match.
                 </p>
-                <input type:="text" name="email" placeholder="Email" class="inputs">
+                <input type:="text" name="email" placeholder="Email" class="inputs" autofocus>
                 <input type:="password" name="password" placeholder="Password" class="inputs">
                 <button type="submit" class="logInBtn">Log in</button>
             </form>
