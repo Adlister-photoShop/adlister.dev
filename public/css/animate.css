@@ -1314,7 +1314,7 @@
   }
 
   to {
-    opacity: 1;
+    opacity: 0.8;
     -webkit-transform: none;
     transform: none;
   }
@@ -1328,7 +1328,7 @@
   }
 
   to {
-    opacity: 1;
+    opacity: 0.8;
     -webkit-transform: none;
     transform: none;
   }
@@ -1589,7 +1589,7 @@
 
 @-webkit-keyframes fadeOutLeft {
   from {
-    opacity: 1;
+    opacity: 0.8;
   }
 
   to {
@@ -1601,7 +1601,7 @@
 
 @keyframes fadeOutLeft {
   from {
-    opacity: 1;
+    opacity: 0.8;
   }
 
   to {
