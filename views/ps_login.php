@@ -1,5 +1,6 @@
 <div class="logInContainer">
     <button class="logInExit">X</button>
+    
     <div class="logInParent">
         <div class="logInToggle">
             <button class="logInShow">Log In</button>
@@ -16,6 +17,7 @@
                 <button type="submit" class="logInBtn">Log in</button>
             </form>
         </div>
+
         <div class="signUp">
             <form method="POST">
                 <input type:="text" name="username" placeholder="Your Name" class="inputs">
