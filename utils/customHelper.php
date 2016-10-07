@@ -150,8 +150,8 @@ function imageUploader(){
 
 
 function tableUserPosts(){
-
-	$array = Post::getPostsForUser($_SESSION['LOGGED_IN_ID']);
+	$session = isset($_SESSION['LOGGED_IN_ID']) ? $_SESSION['LOGGED_IN_ID']: 0;
+	$array = Post::getPostsForUser($session);
 	$i=0;
 	$posts = new Post();
 	
