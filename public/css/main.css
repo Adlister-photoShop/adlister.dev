@@ -271,6 +271,38 @@ ul {
 	padding: 10px;
 }
 
+.tdParent {
+	position: relative;
+}
+
+.titles {
+	opacity: 0;
+	display: block;
+	position: absolute;
+	color: #ddd;
+}
+
+.descriptions {
+	opacity: 0;
+	display: block;
+	position: absolute;
+	bottom: 30px;
+	z-index: 3;
+	color: #ddd;
+}
+
+.prices {
+	opacity: 0;
+	display: block;
+	position: absolute;
+	color: #ddd;
+	bottom: 60px;
+}
+
+#title0 {
+	opacity: 0;
+}
+
 
 
 

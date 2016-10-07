@@ -1,26 +1,7 @@
 <div class="main animated fadeInUp">
     <div class="container-fluid body">
-        <table>
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr>
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr>
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr> 
-            <tr>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-            </tr>    
-        </table>
+        <?= getPhotos() ?>
     </div>
 </div>
+
+<input id="totalPost" type="hidden" value=<?= Post::getNumberOfPosts() ?>>

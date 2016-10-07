@@ -6,7 +6,32 @@
 
 "use strict";
 
-    function animationInClick(clicker, element, animation, opacity){
+    var totalPost = $('#totalPost').val();
+
+    function postHover() {
+        $(".itemImg").hover(function() {
+            for (var i = 0; i < totalPost; i++) {
+                if ($(this).attr('id') == 'image' + i) {
+                    $('#title' + i).css('opacity', '1');
+                }
+            }
+        }, function() {
+            console.log('working');
+        });
+    }
+
+    // $(".weapons").hover(function() {
+    //     for (var i = 0; i < ships[playerShip].weapons.length; i++) {
+    //         if ($(this).attr('id') == ships[playerShip].weapons[i].name) {
+    //             $(".weaponDescription").html(ships[playerShip].weapons[i].description);
+    //         }
+    //     } 
+    // }, function() {
+    //     $(".weaponDescription").html("");
+    // });
+
+
+    function animationInClick(clicker, element, animation, opacity) {
         clicker = $(clicker)
         element = $(element);
         clicker.click(
@@ -20,7 +45,7 @@
             });
     }
 
-    function animationOutClick(clicker, element, animation){
+    function animationOutClick(clicker, element, animation) {
         clicker = $(clicker)
         element = $(element);
         clicker.click(
