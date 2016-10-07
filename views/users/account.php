@@ -14,9 +14,9 @@
             Your Photos
             <!-- <table>
                 <tr>
-                    <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                    <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
-                    <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
+                    <td><img src="/img/placeholder-small.png" class="itemsImg showEditPost"></td>
+                    <td><img src="/img/placeholder-small.png" class="itemsImg showEditPost"></td>
+                    <td><img src="/img/placeholder-small.png" class="itemsImg showEditPost"></td>
                 </tr>
             </table> -->
             <?=$tableUserPosts?>
@@ -33,7 +33,10 @@
             </form>
         </div>
 
+        <?php require '../views/ads/edit.php'; ?>
+        
       </div>
     </div>
   </div>
 </div>
+
