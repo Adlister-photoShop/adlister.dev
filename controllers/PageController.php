@@ -28,6 +28,7 @@ function pageController()
         case '/':
             $data['login'] = logInFunction();
             $data['signUp'] = signUpFunction();
+
             if(Auth::check()){
                 $main_view = '../views/adlister.php';
             }
@@ -46,6 +47,8 @@ function pageController()
 
         case '/imgUpload':
             if(Auth::check()){
+                $data['imgUpload'] =imageUploader();
+                var_dump($data['imgUpload']);
                 getPhotos();
                 $main_view = '../views/adlister.php';
             }else{

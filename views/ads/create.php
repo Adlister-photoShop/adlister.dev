@@ -11,11 +11,11 @@
 
         <div class="postPhoto">
             <form method="POST" class="editForm" action="/imgUpload">
-                <input type="text" name="title" placeholder="Title" class="inputs" required="true">
+                <input type="text" name="name" placeholder="Title" class="inputs" required="true">
                 <input type="number" name="price" placeholder="Asing Price" class="inputs" required="true">
                 <textarea name="description" placeholder="Description" class="inputs"></textarea>
                 <label for="catagories">What is the Genre of your photo?</label>
-                <select class="catagories" name="forms">
+                <select class="catagories" name="category">
                     <option value="animals">Animals</option>
                     <option value="architectural" selected>Architectural</option>
                     <option value="cars">Cars</option>
