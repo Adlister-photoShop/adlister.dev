@@ -39,6 +39,8 @@ function pageController()
 
         case '/adlister':
             if(Auth::check()){
+                $data['tableUserPosts'] = tableUserPosts();
+                $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
             }else{
                 $main_view = '../views/ps_login.php';
@@ -82,9 +84,9 @@ function pageController()
 
     
     //load the info for the table that has the user's posts
-    $data['tableUserPosts'] = tableUserPosts();
+    // $data['tableUserPosts'] = tableUserPosts();
     // get the table for the photos
-    $data['tablePhotos'] = getPhotos();
+    // $data['tablePhotos'] = getPhotos();
 
     $data['email'] = isset($_SESSION['email']) ? $_SESSION['email']: "";
 
