@@ -6,6 +6,8 @@
 
 "use strict";
 
+    <?php Post:: ?>
+
     function animationInClick(clicker, element, animation, opacity){
         clicker = $(clicker)
         element = $(element);
