@@ -12,15 +12,15 @@
         </div>
         
         <div class="logIn">
-            <form method="POST" id="logIn">
+            <form method="POST" id="logIn" action="/">
                 <input type="text" name="email" placeholder="Email" class="inputs" autofocus>
                 <input type="password" name="password" placeholder="Password" class="inputs">
                 <button type="submit" class="logInBtn">Log in</button>
             </form>
         </div>
 
-        <div class="signUp">
-            <form method="POST">
+        <div class="signUp" >
+            <form method="POST" action="/">
                 <input type="text" name="name" placeholder="Your Name" class="inputs" required="true">
                 <input type="text" name="email" placeholder="Email" class="inputs" required="true">
                 <input type="password" name="password" placeholder="Password" class="inputs" required="true">
