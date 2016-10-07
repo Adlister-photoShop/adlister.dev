@@ -50,7 +50,7 @@ function pageController()
         case '/imgUpload':
             if(Auth::check()){
                 imageUploader();
-                getPhotos();
+                $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
             }else{
                 $main_view = '../views/ps_login.php';
@@ -71,6 +71,17 @@ function pageController()
                 $main_view = '../views/ps_login.php';
             }
             break;
+        case '/category':
+            if(Auth::check()){
+                $data['tablePhotos'] = getPhotos();
+                $arrayCategory = getCategory();
+                $data['category'] = showCategory($arrayCategory);
+                $main_view = '../views/ads/category.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
 
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';
@@ -82,9 +93,9 @@ function pageController()
 
     
 
-    
+    $data['tablePhotos'] = getPhotos();
     //load the info for the table that has the user's posts
-    // $data['tableUserPosts'] = tableUserPosts();
+    $data['tableUserPosts'] = tableUserPosts();
     // get the table for the photos
     // $data['tablePhotos'] = getPhotos();
 

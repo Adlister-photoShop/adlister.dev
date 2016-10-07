@@ -177,6 +177,90 @@ function tableUserPosts(){
 	return $content;
 }
 
+function getCategory(){
+	$content="";
+	if($_POST){
+
+		if(Input::get('animals') == 'animals'){
+			$content = Post::getPostsFiltered('animals');
+			return $content;
+			
+		}
+		
+
+		if(Input::get('architectural')== 'architectural'){
+			$content = Post::getPostsFiltered('architectural');
+			return $content;
+		}
+		
+
+		if(Input::get('cars') == 'cars'){
+			$content = Post::getPostsFiltered('cars');
+			return $content;
+		}
+		
+
+		if(Input::get('nature') == 'nature'){
+			$content = Post::getPostsFiltered('nature');
+			return $content;
+		}
+		
+
+		if(Input::get('portraits') == 'portraits'){
+			$content = Post::getPostsFiltered('portraits');
+			return $content;
+		}
+		
+
+		if(Input::get('sports') == 'sports'){
+			$content = Post::getPostsFiltered('sports');
+			return $content;
+		}
+		
+
+		if(Input::get('other') == 'other'){
+			$content = Post::getPostsFiltered('other');
+			return $content;
+		}
+
+		else{
+			$content ="Error in the default";
+			return $content;
+		}
+
+		
+	}	
+}
+
+
+function showCategory($array){
+	$posts = new Post();
+	$i=0;
+	$content ="";
+	$content = '<table>';
+	$content .= "<tr>";
+	foreach ($array as $posts) {
+		
+		if($i % 3 == 0 && $i != 0){
+			$content .= "</tr>";
+			$content .= "<tr>";
+		}
+		$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg' id='image" . $i ."'>" . " ";
+		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+
+		$i++;
+	
+	}
+
+	$content .= '</table>';
+	var_dump($content);
+	return $content;
+}
+
+
+
 
 
 
