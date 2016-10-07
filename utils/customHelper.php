@@ -259,8 +259,31 @@ function showCategory($array){
 }
 
 
+function deletePost(){
+	if($_POST){
+		Post::deletePost(Input::get('id'));
+		return "User deleted";
+	}
+	return;
+}
+
+function editPost(){
+	if($_POST){
+		$post = new Post();
+		$date = date('Y-m-d');
+
+		$post->name = Input::get('name');
+		$post->price = Input::get('price');
+		$post->description = Input::get('description');
+		$post->category = Input::get('category');
+		$post->date_posted = $date;
 
 
+		$post->id = Input::get('id');
+		//should update since id is defined
+		$post->save();
+	}
+}
 
 
 
