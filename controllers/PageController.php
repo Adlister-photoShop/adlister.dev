@@ -44,6 +44,15 @@ function pageController()
             }
             break;
 
+        case '/imgUpload':
+            if(Auth::check()){
+                getPhotos();
+                $main_view = '../views/adlister.php';
+            }else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
+
         case '/logout':
             Auth::logout();
             $main_view = '../views/ps_login.php';
