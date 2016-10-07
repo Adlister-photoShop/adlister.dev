@@ -43,7 +43,6 @@ function pageController()
             Auth::logout();
             $main_view = '../views/ps_login.php';
             break;
-
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';
             break;
