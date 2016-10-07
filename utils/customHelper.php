@@ -55,8 +55,8 @@ function getPhotos(){
 	$i=0;
 	$posts = new Post();
 	$arrayOfPosts = $posts->getAllPosts();
-	
-	$content = '<table class="table">';
+	$content ="";
+	$content = '<table>';
 	$content .= "<tr>";
 	foreach ($arrayOfPosts as $posts) {
 		
@@ -64,16 +64,17 @@ function getPhotos(){
 			$content .= "</tr>";
 			$content .= "<tr>";
 		}
-		$content .= "<td>". $posts['name'] ." ";
-		$content .=  $posts['image_url'] ." ";
-		$content .= $posts['description'];
-		$content .= $posts['price'] ."</td>";
+		$content .= "<td><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg' id='image" . $i ."'>" . " ";
+		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+		$content .= "<div class='prices' id='price" . $i . "'>" . $posts['price'] ."</div></td>";
 
 		$i++;
 	
 	}
 
 	$content .= '</table>';
+	var_dump($content);
 	return $content;
 }
 

@@ -271,6 +271,18 @@ ul {
 	padding: 10px;
 }
 
+.titles {
+	display: none;
+}
+
+.descriptions {
+	display: none;
+}
+
+.prices {
+	display: none;
+}
+
 
 
 
