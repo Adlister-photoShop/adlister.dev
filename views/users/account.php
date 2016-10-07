@@ -22,12 +22,13 @@
         </div>
 
         <div class="editAcc">
-            <form method="POST" class="editForm">
-                <input type="text" name="name" placeholder="Your Name" class="inputs" required="true">
-                <input type="email" name="email" placeholder="Email" class="inputs" required="true">
-                <input type="password" name="password" placeholder="Password" class="inputs" required="true">
+            <form method="POST" class="editForm" action="/userEdit">
+                <input type="text" value="<?=$name?>" name="name" placeholder="Your Name" class="inputs" required="true">
+                <input type="hidden" value="<?=$email?>" name="email" placeholder="Email" class="inputs" required="true">
+                <input type="password" name="password" placeholder="Password" class="inputs">
+                <input type="password" name="newPassword" placeholder="New Password" class="inputs" required="true">
                 <input type="password" name="conPassword" placeholder="Confirm Password" class="inputs" required="true">
-                <button type="submit" class="logInBtn">Submit</button>
+                <a href="/userEdit" title=""><button  type="submit" class="logInBtn">Submit</button></a>
             </form>
         </div>
 
