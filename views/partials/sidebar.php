@@ -7,7 +7,7 @@
 </div>
 <div class="sideText">
     <button class="logInExit">X</button>
-    <div class="showProfile">Hello Username</div>
+    <div class="showProfile">Hello <?=$name?></div>
     <div class="logout"><a href="logout">Log Out</a></div>
     
     <div><a class="showProfile" data-toggle="modal" data-target="#userAccount">Profile</a></div>
