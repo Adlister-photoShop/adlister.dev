@@ -26,8 +26,11 @@ function pageController()
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
-            if(Auth::check())
+            $data['login'] = logInFunction();
+            $data['signUp'] = signUpFunction();
+            if(Auth::check()){
                 $main_view = '../views/adlister.php';
+            }
             else{
                 $main_view = '../views/ps_login.php';
             }
@@ -47,9 +50,14 @@ function pageController()
             break;
 
         case '/userEdit':
-            $data['updateUser'] = updateUser();
-            var_dump($data['updateUser']);
-            $main_view = '../views/adlister.php';
+            if(Auth::check()){
+                $data['updateUser'] = updateUser();
+                var_dump($data['updateUser']);
+                $main_view = '../views/adlister.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
             break;
 
         default:    // displays 404 if route not specified above
@@ -60,10 +68,8 @@ function pageController()
 
 
 
-    $data['login'] = logInFunction();
-    var_dump($data['login']);
-    $data['signUp'] = signUpFunction();
-    var_dump($data['signUp']);
+    
+
     
     
     // get the table for the photos
@@ -71,7 +77,7 @@ function pageController()
 
     $data['email'] = isset($_SESSION['email']) ? $_SESSION['email']: "";
 
-    $data['name'] = isset($_SESSION['name']) ? $_SESSION['name']: "";
+    $data['name'] = isset($_SESSION['name']) ? $_SESSION['name']: "Unknown";
 
     $data['main_view'] = $main_view;
     

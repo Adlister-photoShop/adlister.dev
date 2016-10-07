@@ -21,10 +21,10 @@
 
         <div class="signUp">
             <form method="POST">
-                <input type="text" name="name" placeholder="Your Name" class="inputs">
-                <input type="text" name="email" placeholder="Email" class="inputs">
-                <input type="password" name="password" placeholder="Password" class="inputs">
-                <input type="password" name="conPassword" placeholder="Confirm Password" class="inputs">
+                <input type="text" name="name" placeholder="Your Name" class="inputs" required="true">
+                <input type="text" name="email" placeholder="Email" class="inputs" required="true">
+                <input type="password" name="password" placeholder="Password" class="inputs" required="true">
+                <input type="password" name="conPassword" placeholder="Confirm Password" class="inputs" required="true">
                 <button type="submit" class="logInBtn">Sign Up</button>
             </form>
         </div>
