@@ -12,13 +12,14 @@
         
         <div class="container-fluid userPhotos">
             Your Photos
-            <table>
+            <!-- <table>
                 <tr>
                     <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
                     <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
                     <td><img src="/img/placeholder-small.png" class="itemsImg"></td>
                 </tr>
-            </table>
+            </table> -->
+            <?=$tableUserPosts?>
         </div>
 
         <div class="editAcc">

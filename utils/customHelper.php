@@ -149,6 +149,35 @@ function imageUploader(){
 }
 
 
+function tableUserPosts(){
+
+	$array = Post::getPostsForUser($_SESSION['LOGGED_IN_ID']);
+	$i=0;
+	$posts = new Post();
+	
+	$content ="";
+	$content = '<table>';
+	$content .= "<tr>";
+	foreach ($array as $posts) {
+		
+		if($i % 3 == 0 && $i != 0){
+			$content .= "</tr>";
+			$content .= "<tr>";
+		}
+		$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+		$content .= "<img src=/uploads/'" . $posts['image_url'] . "' class='itemsImg' id='image" . $i ."'>" . " ";
+		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+
+		$i++;
+	
+	}
+
+	$content .= '</table>';
+	return $content;
+}
+
+
 
 
 
