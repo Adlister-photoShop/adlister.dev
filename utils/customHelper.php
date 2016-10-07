@@ -14,12 +14,15 @@ function signUpFunction(){
 				$user->username = Input::get('email');
 				$user->password = Input::get('password');
 				//check for duplicates....
-				$user->save();
+				//if the email doesn't exist in the database save
+				if(checkDuplicateEmail($user))
+					$user->save();
+				else
+					return "email already in use.";
 
 				if(Auth::attempt($user->username, Input::get('password'))){
 					header("Location:/adlister");
 					die();
-
 				}
 			}
 			else{
@@ -39,6 +42,7 @@ function logInFunction(){
 	if(Auth::attempt($username, $password)){
 		if(Auth::check()){
 			header("Location:/adlister");
+			die();
 		}
 	}
 	else if(Input::has('username') || Input::has('password')){
@@ -73,6 +77,16 @@ function getPhotos(){
 	return $content;
 }
 
-
+//function returns false if user match is found
+function checkDuplicateEmail($userObject){
+	$arrayOfUsers = $userObject->getArrayUsers();
+	foreach ($arrayOfUsers as $user) {
+		//if email is equal
+		if($user['email'] == $userObject->email)
+			return false;
+	}
+	//if no match was found
+	return true;
+}
 
 ?>

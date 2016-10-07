@@ -47,6 +47,22 @@ class User extends Model {
 
         return $instance;
     }
+    //get the associative array of users
+    function getArrayUsers(){
+        self::dbConnect();
+
+        //Learning from the previous method, return all the matching records
+        //Create select statement using prepared statements
+        $query = 'SELECT * FROM ' . static::$table;
+
+        $stmt = self::$dbc->prepare($query);
+        $stmt->execute();
+
+        //Store the resultset in a variable named $result
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
 
 
 }
