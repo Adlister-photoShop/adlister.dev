@@ -12,13 +12,6 @@
         
         <div class="container-fluid userPhotos">
             Your Photos
-            <!-- <table>
-                <tr>
-                    <td><img src="/img/placeholder-small.png" class="itemsImg showEditPost"></td>
-                    <td><img src="/img/placeholder-small.png" class="itemsImg showEditPost"></td>
-                    <td><img src="/img/placeholder-small.png" class="itemsImg showEditPost"></td>
-                </tr>
-            </table> -->
             <?=$tableUserPosts?>
         </div>
 
