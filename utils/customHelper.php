@@ -134,22 +134,16 @@ function updateUser(){
 function imageUploader(){
 	$date = date('Y-m-d');
 	$post = new Post();
-	$imgUrl = Input::get('img_url');
-	var_dump($imgUrl);
-	var_dump($imgUrl);
-	var_dump($imgUrl);var_dump($imgUrl);
-	if(saveUploadedImage($imgUrl)){
-		$post->user_id = $_SESSION['LOGGED_IN_ID'];
-		$post->name = Input::get('name');
-		$post->price = Input::get('price');
-		$post->description = Input::get('description');
-		$post->category = Input::get('category');
-		$post->imgage_url = $imgUrl;
-		$post->date_posted = $date;
-	}
-	else{
-		return "Error uploading the image";
-	}
+	$post->image_url = saveUploadedImage('img_url');
+	
+	$post->user_id = $_SESSION['LOGGED_IN_ID'];
+	$post->name = Input::get('name');
+	$post->price = Input::get('price');
+	$post->description = Input::get('description');
+	$post->category = Input::get('category');
+	$post->date_posted = $date;
+
+	$post->save();
 
 
 

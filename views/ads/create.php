@@ -10,7 +10,7 @@
       <div class="modal-body">
 
         <div class="postPhoto">
-            <form method="POST" class="editForm" action="/imgUpload">
+            <form method="POST" class="editForm" action="/imgUpload" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Title" class="inputs" required="true">
                 <input type="number" name="price" placeholder="Asing Price" class="inputs" required="true">
                 <textarea name="description" placeholder="Description" class="inputs"></textarea>
