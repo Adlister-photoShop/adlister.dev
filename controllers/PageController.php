@@ -32,6 +32,7 @@ function pageController()
                 $main_view = '../views/ps_login.php';
             }
             break;
+
         case '/adlister':
             if(Auth::check()){
                 $main_view = '../views/adlister.php';
@@ -39,10 +40,18 @@ function pageController()
                 $main_view = '../views/ps_login.php';
             }
             break;
+
         case '/logout':
             Auth::logout();
             $main_view = '../views/ps_login.php';
             break;
+
+        case '/userEdit':
+            $data['updateUser'] = updateUser();
+            var_dump($data['updateUser']);
+            $main_view = '../views/adlister.php';
+            break;
+
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';
             break;
@@ -52,12 +61,18 @@ function pageController()
 
 
     $data['login'] = logInFunction();
-
+    var_dump($data['login']);
     $data['signUp'] = signUpFunction();
+    var_dump($data['signUp']);
     
-    //get the table for the photos
+    
+    // get the table for the photos
     $data['tablePhotos'] = getPhotos();
-    
+
+    $data['email'] = isset($_SESSION['email']) ? $_SESSION['email']: "";
+
+    $data['name'] = isset($_SESSION['name']) ? $_SESSION['name']: "";
+
     $data['main_view'] = $main_view;
     
 

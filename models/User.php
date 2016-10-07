@@ -64,6 +64,12 @@ class User extends Model {
         return $results;
     }
 
+    public static function getUserPassword($email){
+        $user = User::findByUsernameOrEmail($email);
+        return $user->attributes['password'];
+    }
+
+   
 
 }
 

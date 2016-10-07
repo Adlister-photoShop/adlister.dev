@@ -33,8 +33,14 @@ class Auth
 		{
 
 			// sets session variables used for logged in user
+
 			$_SESSION['IS_LOGGED_IN'] = $user->username;
 			$_SESSION['LOGGED_IN_ID'] = $user->id;
+
+			///personal variables
+			$_SESSION['email'] = $user->email;
+			$_SESSION['name'] = $user->name;
+			//
 
 			return true;
 		}

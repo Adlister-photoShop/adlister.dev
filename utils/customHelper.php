@@ -89,4 +89,60 @@ function checkDuplicateEmail($userObject){
 	return true;
 }
 
+//function for updating/editing the user
+function updateUser(){
+
+	if($_POST){
+		if(!empty(Input::get('name')) && !empty(Input::get('email')) && !empty(Input::get('password'))
+			&& !empty(Input::get('newPassword')) && !empty(Input::get('conPassword'))){
+			//if new passwords match
+			if(Input::get('newPassword') == Input::get('conPassword')){
+				//if old password matches with the one in the database
+				$oldPass = User::getUserPassword(Input::get('email'));
+				if( password_verify(Input::get('password'), $oldPass)) {
+					//register the user
+					$user = new User();
+					//hashing the password before saving it
+					$user->name = Input::get('name');
+					$user->email = Input::get('email');
+					$user->username = Input::get('email');
+					$user->password = Input::get('newPassword');
+					$user->id = $_SESSION['LOGGED_IN_ID'];
+					//use session id?
+					
+					$user->save();
+					
+					
+					
+				}
+				else{
+					return "Current password not found.";
+				}
+			}
+			else{
+				return "Passwords do not match.";
+			}
+
+		}
+		else{
+			return "Check for empty inputs below.";
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
