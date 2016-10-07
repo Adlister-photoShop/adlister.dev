@@ -28,6 +28,13 @@ class Post extends Model {
         return $results;
     }
 
+    public static function getNumberOfPosts(){
+        $query = "SELECT * FROM ". static::$table;
+        $stmt = self::$dbc->prepare($query);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
+
 }
 
 ?>
