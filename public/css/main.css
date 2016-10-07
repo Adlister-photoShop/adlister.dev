@@ -89,6 +89,7 @@ a {
 	max-width: 100%;
 	min-width: 50%;
 	height: auto;
+	cursor: pointer;
 }
 
 .items {
@@ -299,9 +300,21 @@ ul {
 	bottom: 60px;
 }
 
+.editUserPhotos {
+	margin: auto;
+	text-align: center;
+	opacity: 0;
+	display: none;
+}
+
+.editPhoto {
+	margin-bottom: 10px;
+}
+
 #title0 {
 	opacity: 0;
 }
+
 
 
 
