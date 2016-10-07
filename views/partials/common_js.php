@@ -7,30 +7,7 @@
 "use strict";
 
     var totalPost = $('#totalPost').val();
-
-    function postHover() {
-        $(".itemImg").hover(function() {
-            for (var i = 0; i < totalPost; i++) {
-                if ($(this).attr('id') == 'image' + i) {
-                    $('#title' + i).css('opacity', '1');
-                }
-            }
-        }, function() {
-            console.log('working');
-        });
-    }
-
-    // $(".weapons").hover(function() {
-    //     for (var i = 0; i < ships[playerShip].weapons.length; i++) {
-    //         if ($(this).attr('id') == ships[playerShip].weapons[i].name) {
-    //             $(".weaponDescription").html(ships[playerShip].weapons[i].description);
-    //         }
-    //     } 
-    // }, function() {
-    //     $(".weaponDescription").html("");
-    // });
-
-
+ 
     function animationInClick(clicker, element, animation, opacity) {
         clicker = $(clicker)
         element = $(element);
@@ -58,6 +35,36 @@
                 }, 1400);         
             });
     }
+
+    $(".itemsImg").hover(function() {
+        for (var i = 0; i < totalPost; i++) {
+            if ($(this).attr('id') == 'image' + i) {
+                $('#title' + i).animate({
+                    opacity: '1'
+                }, 400);
+                $('#description' + i).animate({
+                    opacity: '1'
+                }, 400);
+                $('#price' + i).animate({
+                    opacity: '1'
+                }, 400);
+            }
+        }
+    }, function() {
+        for (var i = 0; i < totalPost; i++) {
+            if ($(this).attr('id') == 'image' + i) {
+                $('#title' + i).animate({
+                    opacity: '0'
+                }, 300);
+                $('#description' + i).animate({
+                    opacity: '0'
+                }, 300);
+                $('#price' + i).animate({
+                    opacity: '0'
+                }, 300);
+            }
+        }
+    });
 
     $('.logInShow').click(function() {
         $('.signUp').css('display', 'none');
