@@ -32,7 +32,8 @@ class Post extends Model {
         $query = "SELECT * FROM ". static::$table;
         $stmt = self::$dbc->prepare($query);
         $stmt->execute();
-        return $stmt->rowCount();
+        $total = $stmt->rowCount();
+        return $total;
     }
 
 }
