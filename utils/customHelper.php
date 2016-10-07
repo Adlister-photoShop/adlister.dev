@@ -255,7 +255,6 @@ function showCategory($array){
 	}
 
 	$content .= '</table>';
-	var_dump($content);
 	return $content;
 }
 

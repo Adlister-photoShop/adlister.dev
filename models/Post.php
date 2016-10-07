@@ -55,7 +55,6 @@ class Post extends Model {
         self::dbConnect();
 
         $query = "SELECT * FROM ". static::$table . " WHERE category='".$type. "'";
-        var_dump($query);
         $stmt = self::$dbc->prepare($query);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
