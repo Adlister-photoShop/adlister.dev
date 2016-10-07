@@ -29,10 +29,26 @@ class Post extends Model {
     }
 
     public static function getNumberOfPosts(){
+        self::dbConnect();
+
         $query = "SELECT * FROM ". static::$table;
         $stmt = self::$dbc->prepare($query);
         $stmt->execute();
         $total = $stmt->rowCount();
+        return $total;
+    }
+
+
+    //function will return the posts that have the same id as user
+    public static function getPostsForUser($userId){
+        self::dbConnect();
+        
+        $query = "SELECT * FROM ". static::$table . " WHERE user_id=".$userId;
+        var_dump($query);
+        $stmt = self::$dbc->prepare($query);
+        $stmt->execute();
+        $total = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         return $total;
     }
 

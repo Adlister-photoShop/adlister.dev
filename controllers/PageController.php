@@ -81,7 +81,8 @@ function pageController()
     
 
     
-    
+    //load the info for the table that has the user's posts
+    $data['tableUserPosts'] = tableUserPosts();
     // get the table for the photos
     $data['tablePhotos'] = getPhotos();
 
