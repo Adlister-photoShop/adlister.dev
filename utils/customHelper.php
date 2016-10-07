@@ -165,7 +165,7 @@ function tableUserPosts(){
 			$content .= "<tr>";
 		}
 		$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg' id='image" . $i ."'>" . " ";
+		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg showEditPost' id='image" . $i ."'>" . " ";
 		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
 		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
