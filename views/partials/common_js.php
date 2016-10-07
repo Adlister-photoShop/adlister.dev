@@ -87,8 +87,21 @@
 
     $('.profileEdit').click(function() {
         $('.userPhotos').css('display', 'none');
+        $('.profileEdit').css('display', 'none');
         $('.editAcc').css('display', 'block');
         $('.editAcc').animate({
+            opacity: '1'
+        }, 600);
+        $('.userPhotos').animate({
+            opacity: '0'
+        }, 600);
+    });
+
+    $('.showEditPost').click(function() {
+        $('.userPhotos').css('display', 'none');
+        $('.profileEdit').css('display', 'none');
+        $('.editUserPhotos').css('display', 'block');
+        $('.editUserPhotos').animate({
             opacity: '1'
         }, 600);
         $('.userPhotos').animate({
