@@ -50,6 +50,18 @@ class Post extends Model {
 
         return $total;
     }
+    //function that takes the category and returns the rows that match that type
+    public static function getPostsFiltered($type){
+        self::dbConnect();
+
+        $query = "SELECT * FROM ". static::$table . " WHERE category='".$type. "'";
+        $stmt = self::$dbc->prepare($query);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $rows;
+
+    }
 
 }
 
