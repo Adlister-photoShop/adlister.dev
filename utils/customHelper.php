@@ -135,7 +135,6 @@ function imageUploader(){
 	$date = date('Y-m-d');
 	$post = new Post();
 	$post->image_url = saveUploadedImage('img_url');
-	
 	$post->user_id = $_SESSION['LOGGED_IN_ID'];
 	$post->name = Input::get('name');
 	$post->price = Input::get('price');
