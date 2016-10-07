@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main animated fadeInUp">
     <div class="container-fluid body">
         <table>
             <tr>

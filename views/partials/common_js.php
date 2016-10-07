@@ -60,11 +60,20 @@
         }, 600);
     });
 
+    $('.profileEdit').click(function() {
+        $('.userPhotos').css('display', 'none');
+        $('.editAcc').css('display', 'block');
+        $('.editAcc').animate({
+            opacity: '1'
+        }, 600);
+        $('.userPhotos').animate({
+            opacity: '0'
+        }, 600);
+    });
+
     animationInClick('.hamburger', '.sideNav', 'fadeInLeft', '0.8');
     animationOutClick('.logInExit', '.sideNav', 'fadeOutLeft');
-    animationInClick('.hamburger', '.sideText', 'zoomInLeft', '1');
+    animationInClick('.hamburger', '.sideText', 'slideInLeft', '1');
     animationOutClick('.logInExit', '.sideText', 'fadeOutLeft');
-    animationInClick('.in', '.main', 'flipInX');
-    animationOutClick('.out', '.main', 'flipOutX');
 
 </script>

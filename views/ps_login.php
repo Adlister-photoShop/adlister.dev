@@ -13,18 +13,18 @@
         
         <div class="logIn">
             <form method="POST" id="logIn">
-                <input type:="text" name="email" placeholder="Email" class="inputs" autofocus>
-                <input type:="password" name="password" placeholder="Password" class="inputs">
+                <input type="text" name="email" placeholder="Email" class="inputs" autofocus>
+                <input type="password" name="password" placeholder="Password" class="inputs">
                 <button type="submit" class="logInBtn">Log in</button>
             </form>
         </div>
 
         <div class="signUp">
             <form method="POST">
-                <input type:="text" name="name" placeholder="Your Name" class="inputs">
-                <input type:="text" name="email" placeholder="Email" class="inputs">
-                <input type:="password" name="password" placeholder="Password" class="inputs">
-                <input type:="password" name="conPassword" placeholder="Confirm Password" class="inputs">
+                <input type="text" name="name" placeholder="Your Name" class="inputs">
+                <input type="text" name="email" placeholder="Email" class="inputs">
+                <input type="password" name="password" placeholder="Password" class="inputs">
+                <input type="password" name="conPassword" placeholder="Confirm Password" class="inputs">
                 <button type="submit" class="logInBtn">Sign Up</button>
             </form>
         </div>
