@@ -87,7 +87,8 @@ function getShowPhoto(){
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
 		$content .= "<div class='showImage' id='showImageId" . $i . "'><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
-
+		$content .= "<div class='message'><form method='POST' class='editForm' action='editPost'>";
+		$content .= 
 		$i++;
 	}
 	return $content;
