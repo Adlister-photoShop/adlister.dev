@@ -91,21 +91,22 @@ function pageController()
 
                 //refresh the tables for users posts
                 $data['tableUserPosts'] = tableUserPosts();
-                $main_view = '../views/ads/adlister.php';
+                $main_view = '../views/adlister.php';
             }
             else{
                 $main_view = '../views/ps_login.php';
             }
             break;
-        case '/deletePost':
+        case '/editDelete':
             if(Auth::check()){
+                $data['deletePost'] = deletePost();//make
+
                 $data['tablePhotos'] = getPhotos();
 
-                $data['deletePost'] = deletePost();//make
                 
                 //refresh the tables for users posts
                 $data['tableUserPosts'] = tableUserPosts();
-                $main_view = '../views/ads/adlister.php';
+                $main_view = '../views/adlister.php';
             }
             else{
                 $main_view = '../views/ps_login.php';
