@@ -98,6 +98,20 @@ class Post extends Model {
         return $content;
     }
 
+    //sort  by will be either price or date_added and type will be either DESC or ASC
+    public static function sortBy($sortBy, $type){
+        self::dbConnect();
+
+        //SELECT * FROM posts ORDER BY price desc;
+        $query = 'SELECT * FROM ' . static::$table . ' ORDER BY '.$sortBy.' '.$type;
+        $stmt = self::$dbc->prepare($query);  
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
 }
 
 ?>

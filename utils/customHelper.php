@@ -294,7 +294,7 @@ function showCategory($array){
 			$content .= "<tr>";
 		}
 		$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg' id='image" . $i ."'>" . " ";
+		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
 		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
 		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
@@ -368,9 +368,50 @@ function getFilteredPhotos(){
 
 
 
+function getSortedPhotos($sortBy){
+	$content ="";
+	if(Input::has('sortA')){
+		$content = Post::sortBy(Input::get('sortA'), 'ASC');
+	}
+	else if(Input::has('sortD')){
+		$content = Post::sortBy(Input::get('sortD'), 'DESC');
+	}
+	else{
+		return "Error in sort";
+	}
+
+	$result = getTableFormat($content);
 
 
 
+	return $result;
+
+}
+
+//function takes an array and returns the table formated with html
+function getTableFormat($array){
+	$i=0;
+	$content ="";
+	$content = "<table class='mainTable'>";
+	$content .= "<tr>";
+	foreach ($array as $posts) {
+		
+		if($i % 3 == 0 && $i != 0){
+			$content .= "</tr>";
+			$content .= "<tr>";
+		}
+		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
+		$content .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+
+		$i++;
+	
+	}
+
+	$content .= '</table>';
+	return $content;
+}
 
 
 
