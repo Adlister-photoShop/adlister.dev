@@ -137,9 +137,9 @@ function pageController()
         case '/sort':
             if(Auth::check()){
                 //get the filtered results
-                var_dump(Input::get('sort'));
-                $data['tablePhotos'] = getSortedPhotos(Input::get('sort'));
                 
+                $data['tablePhotos'] = getSortedPhotos(Input::get('sort'));
+                // var_dump($data['tablePhotos']);
                 $main_view = '../views/adlister.php';
             }
             else{

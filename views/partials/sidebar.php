@@ -70,12 +70,27 @@
     <div class="list">
         <ul>
             <form method="POST" action="sort">
-                <input type="hidden" value="price" name="sort">
-                <li><button class="cat" type="submit">Price</button></li>
+                <input type="hidden" value="price" name="sortA">
+                
+                <li><button class="cat" type="submit">Lowest Price</button></li>
             </form>
+
             <form method="POST" action="sort">
-                <input type="hidden" value="date_posted" name="sort">
-                <li><button class="cat" type="submit">Date Added</button></li>
+                <input type="hidden" value="price" name="sortD">
+
+                <li><button class="cat" type="submit">Highest Price</button></li>
+            </form>
+
+            <form method="POST" action="sort">
+                <input type="hidden" value="date_posted" name="sortD">
+
+                 <li><button class="cat" type="submit">Newest</button></li>
+            </form>
+
+            <form method="POST" action="sort">
+                <input type="hidden" value="date_posted" name="sortA">
+               
+                <li><button class="cat" type="submit">Oldest</button></li>
             </form>
         </ul>
     </div>
