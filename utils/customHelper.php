@@ -202,7 +202,7 @@ function userPostsEdit(){
 	foreach ($array as $posts) {
 		
 		$content .= "<div class='editUserPhotos' id='editUserPhoto" . $i . "'><img src='" . $posts['image_url'] . "' class='editPhoto'><form method='POST' class='editForm' action='editPost'>";
-		$content .= "<input type='hidden' name='id' value='" . $posts['id'] . "'><input type='text' name='name' placeholder='Title' value=".$posts['name']." class='inputs' required='true'><input type='number' name='price' placeholder='Asking Price' class='inputs' required='true'>";
+		$content .= "<input type='hidden' name='id' value='" . $posts['id'] . "'><input type='text' name='name' placeholder='Title' value='".$posts['name']."'' class='inputs' required='true'><input type='number' name='price' value=".$posts['price']. " placeholder='Asking Price' class='inputs' required='true'>";
 		$content .= "<textarea name='description'  placeholder='Description' class='inputs'>".$posts['description']."</textarea><label for='catagories'>What is the Genre of your photo?</label>";
 		$content .= "<select class='catagories' name='category'><option value='animals'>Animals</option><option value='architectural' selected>Architectural</option><option value='cars'>Cars</option>";
 		$content .= "<option value='nature' selected>Nature</option><option value='portraits'>Portraits</option><option value='sports' selected>Sports</option><option value='other' selected>Other</option></select><br><button type='submit' class='logInBtn'>Edit</button></form>";

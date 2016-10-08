@@ -40,7 +40,7 @@ function pageController()
 
         case '/adlister':
             if(Auth::check()){
-                $data['tableUserPosts'] = tableUserPosts();
+                // $data['tableUserPosts'] = tableUserPosts();
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
             }else{
@@ -91,7 +91,7 @@ function pageController()
                 $data['editPost'] = editPost();//make
 
                 //refresh the tables for users posts
-                $data['tableUserPosts'] = tableUserPosts();
+                // $data['tableUserPosts'] = tableUserPosts();
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -106,7 +106,7 @@ function pageController()
 
                 
                 //refresh the tables for users posts
-                $data['tableUserPosts'] = tableUserPosts();
+                // $data['tableUserPosts'] = tableUserPosts();
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -126,7 +126,7 @@ function pageController()
                     $data['tablePhotos'] = getPhotos();
                 }
                 //refresh the tables for users posts
-                $data['tableUserPosts'] = tableUserPosts();
+                // $data['tableUserPosts'] = tableUserPosts();
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -145,11 +145,10 @@ function pageController()
 
     
 
-    // $data['tablePhotos'] = getPhotos();
-    //load the info for the table that has the user's posts
+    
+    //load the info for the table that has the user's posts every time
     $data['tableUserPosts'] = tableUserPosts();
-    // get the table for the photos
-    // $data['tablePhotos'] = getPhotos();
+    
 
     $data['email'] = isset($_SESSION['email']) ? $_SESSION['email']: "";
 
