@@ -134,6 +134,18 @@ function pageController()
             }
             break;
 
+        case '/sort':
+            if(Auth::check()){
+                //get the filtered results
+                var_dump(Input::get('sort'));
+                $data['tablePhotos'] = getSortedPhotos(Input::get('sort'));
+                
+                $main_view = '../views/adlister.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
 
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';

@@ -367,7 +367,10 @@ function getFilteredPhotos(){
 
 
 
-
+function getSortedPhotos($sortBy){
+	Post::sortBy($sortBy);
+	
+}
 
 
 

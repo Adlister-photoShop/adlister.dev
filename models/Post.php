@@ -98,6 +98,21 @@ class Post extends Model {
         return $content;
     }
 
+
+    public static function sortBy($sortBy){
+        self::dbConnect();
+
+        //SELECT * FROM posts ORDER BY price desc;
+        $query = 'SELECT * FROM ' . static::$table . ' ORDER BY '.$sortBy.' DESC';
+        $stmt = self::$dbc->prepare($query);  
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($result);
+
+        return $result;
+    }
+
 }
 
 ?>
