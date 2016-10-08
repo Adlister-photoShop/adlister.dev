@@ -201,7 +201,7 @@ function userPostsEdit(){
 	$content ="";
 	foreach ($array as $posts) {
 		
-		$content .= "<div class='editUserPhotos' id='editUserPhoto" . $i . "'><img src='" . $posts['image_url'] . "' class='editPhoto'><form method='POST' class='editForm'>";
+		$content .= "<div class='editUserPhotos' id='editUserPhoto" . $i . "'><img src='" . $posts['image_url'] . "' class='editPhoto'><form method='POST' class='editForm' action='editPost'>";
 		$content .= "<input type='hidden' name='id' value='" . $posts['id'] . "'><input type='text' name='name' placeholder='Title' class='inputs' required='true'><input type='number' name='price' placeholder='Asking Price' class='inputs' required='true'>";
 		$content .= "<textarea name='description' placeholder='Description' class='inputs'></textarea><label for='catagories'>What is the Genre of your photo?</label>";
 		$content .= "<select class='catagories' name='category'><option value='animals'>Animals</option><option value='architectural' selected>Architectural</option><option value='cars'>Cars</option>";
@@ -305,11 +305,43 @@ function showCategory($array){
 }
 
 
+function deletePost(){
+	if($_POST){
+		Post::deletePost(Input::get('id'));
+		return "User deleted";
+	}
+	return;
+}
+
+function editPost(){
+	if($_POST){
+		$post = new Post();
+		$date = date('Y-m-d');
+
+		$post->name = Input::get('name');
+		$post->price = Input::get('price');
+		$post->description = Input::get('description');
+		$post->category = Input::get('category');
+		$post->date_posted = $date;
 
 
+		$post->id = Input::get('id');
+		//should update since id is defined
+		$post->save();
+	}
+}
 
 
+function getFilteredPhotos(){
+	if($_POST){
+		$content ="";
+		$word = Input::get('searchText');
+		var_dump($word);
+		$content = Post::getFilteredResults($word);
 
+		return $content;
+	}
+}
 
 
 

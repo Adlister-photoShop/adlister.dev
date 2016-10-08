@@ -83,6 +83,51 @@ function pageController()
             }
             break;
 
+        case '/editPost':
+            if(Auth::check()){
+                $data['tablePhotos'] = getPhotos();
+
+                $data['editPost'] = editPost();//make
+
+                //refresh the tables for users posts
+                $data['tableUserPosts'] = tableUserPosts();
+                $main_view = '../views/adlister.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
+        case '/editDelete':
+            if(Auth::check()){
+                $data['deletePost'] = deletePost();//make
+
+                $data['tablePhotos'] = getPhotos();
+
+                
+                //refresh the tables for users posts
+                $data['tableUserPosts'] = tableUserPosts();
+                $main_view = '../views/adlister.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
+
+        case '/searchBar':
+            if(Auth::check()){
+                //get the filtered results
+                $data['tablePhotos'] = getFilteredPhotos();
+                
+                //refresh the tables for users posts
+                $data['tableUserPosts'] = tableUserPosts();
+                $main_view = '../views/adlister.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
+
+
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';
             break;

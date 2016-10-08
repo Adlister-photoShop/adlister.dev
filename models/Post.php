@@ -63,6 +63,28 @@ class Post extends Model {
 
     }
 
+    // deletes object from db
+    public static function deletePost($id)
+    {
+        self::dbConnect();
+
+        $query = 'DELETE FROM ' . static::$table . ' WHERE id='. $id;
+
+        $stmt = self::$dbc->prepare($query);
+        // $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public static function getFilteredResults($word){
+        // self::dbConnect();
+
+        // $query = 'DELETE FROM ' . static::$table . ' WHERE id='. $id;
+
+        // $stmt = self::$dbc->prepare($query);
+        // // $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
+        // $stmt->execute();
+    }
+
 }
 
 ?>

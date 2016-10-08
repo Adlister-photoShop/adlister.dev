@@ -13,10 +13,12 @@
     <div><a class="showProfile" data-toggle="modal" data-target="#userAccount">Profile</a></div>
     <div><a class="showPost" data-toggle="modal" data-target="#postPhoto">Post Photo</a></div>
     <div class="hline"></div>
-    <!-- <form class="search">
-        <input type="text">
+
+    <form method="POST" class="search" action="/searchBar">
+        <input type="text" name="searchText">
         <button type="submit">Search</button>
-    </form> -->
+    </form>
+
     <div class="showPost">Catagories</div>
     <div class="list">
         <ul>
