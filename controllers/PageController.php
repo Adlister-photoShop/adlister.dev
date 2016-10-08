@@ -111,7 +111,21 @@ function pageController()
             else{
                 $main_view = '../views/ps_login.php';
             }
-                break;
+            break;
+
+        case '/searchBar':
+            if(Auth::check()){
+                //get the filtered results
+                $data['tablePhotos'] = getFilteredPhotos();
+                
+                //refresh the tables for users posts
+                $data['tableUserPosts'] = tableUserPosts();
+                $main_view = '../views/adlister.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
 
 
         default:    // displays 404 if route not specified above

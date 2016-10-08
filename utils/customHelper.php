@@ -331,7 +331,16 @@ function editPost(){
 }
 
 
+function getFilteredPhotos(){
+	if($_POST){
+		$content ="";
+		$word = Input::get('searchText');
+		var_dump($word);
+		$content = Post::getFilteredResults($word);
 
+		return $content;
+	}
+}
 
 
 
