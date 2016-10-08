@@ -83,6 +83,7 @@ function getShowPhoto(){
 	$i=0;
 	$posts = new Post();
 	$arrayOfPosts = $posts->getAllPosts();
+	var_dump($arrayOfPosts);
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
 		$content .= "<div class='showImage' id='showImageId" . $i . "'><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
