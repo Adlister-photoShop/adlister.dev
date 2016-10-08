@@ -1,6 +1,6 @@
 <div class="main animated fadeInUp">
     <div class="container-fluid body">
-        <?= getPhotos() ?>
+        <?= $tablePhotos ?>
     </div>
 </div>
 <div class='over'>

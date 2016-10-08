@@ -76,13 +76,26 @@ class Post extends Model {
     }
 
     public static function getFilteredResults($word){
-        // self::dbConnect();
+        self::dbConnect();
+        $content =[];
 
-        // $query = 'DELETE FROM ' . static::$table . ' WHERE id='. $id;
+        $query = 'SELECT * FROM ' . static::$table . " WHERE description like '%". $word ."%'";
+        $stmt = self::$dbc->prepare($query);  
+        $stmt->execute();
+        $content []= $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // $stmt = self::$dbc->prepare($query);
-        // // $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
-        // $stmt->execute();
+        $query = 'SELECT * FROM ' . static::$table . " WHERE name like '%". $word ."%'";
+        $stmt = self::$dbc->prepare($query);  
+        $stmt->execute();
+        $content []= $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $query = 'SELECT * FROM ' . static::$table . " WHERE category like '%". $word ."%'";
+        $stmt = self::$dbc->prepare($query);  
+        $stmt->execute();
+        $content [] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return $content;
     }
 
 }

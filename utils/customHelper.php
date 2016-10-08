@@ -282,7 +282,7 @@ function showCategory($array){
 	$posts = new Post();
 	$i=0;
 	$content ="";
-	$content = '<table>';
+	$content = "<table class='mainTable'>";
 	$content .= "<tr>";
 	foreach ($array as $posts) {
 		
@@ -333,12 +333,33 @@ function editPost(){
 
 function getFilteredPhotos(){
 	if($_POST){
-		$content ="";
+		$content = [];
+		$i =0;
+		$result="";
 		$word = Input::get('searchText');
-		var_dump($word);
+
 		$content = Post::getFilteredResults($word);
 
-		return $content;
+		$result = "<table class='mainTable'>";
+		$result .= "<tr>";
+		foreach ($content as $arrays) {
+			foreach ($arrays as $posts) {
+					
+				if($i % 3 == 0 && $i != 0){
+					$result .= "</tr>";
+					$result .= "<tr>";
+				}
+				$result .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
+				$result .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+				$result .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+				$result .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+
+				$i++;
+				
+			}
+		}
+		$result .= "</table>";
+		return $result;
 	}
 }
 
