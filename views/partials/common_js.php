@@ -80,6 +80,18 @@
         }
     });
 
+    $(".itemsImg").click(function() {
+        for (var i = 0; i < totalPost; i++) {
+            if ($(this).attr('id') == 'image' + i) {
+                $('.over').css('z-index', '1');
+                $('#imagePhoto' + i).css('display', 'block');
+                $('#imagePhoto' + i).animate({
+                    opacity: '1'
+                }, 500);
+            }
+        }
+    });
+
     $(".tdParent").click(function() {
         for (var i = 0; i < totalUserPosts; i++) {
             if ($(this).attr('id') == 'cell' + i) {
