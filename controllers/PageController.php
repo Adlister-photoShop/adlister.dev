@@ -143,8 +143,8 @@ function pageController()
 
 
 
-    
-
+    //function takes user_id and returns the email of the user that posted the picture
+    // var_dump(User::getUserEmail(2));
     
     //load the info for the table that has the user's posts every time
     $data['tableUserPosts'] = tableUserPosts();
