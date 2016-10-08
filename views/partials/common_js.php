@@ -87,10 +87,22 @@
                 $('#imagePhoto' + i).css('display', 'block');
                 $('#imagePhoto' + i).animate({
                     opacity: '1'
-                }, 500);
+                }, 300);
             }
         }
     });
+
+    $('.over').click(function() {
+        for (var i = 0; i < totalPost; i++) {
+            $('.over').css('z-index', '-1');
+            $('#imagePhoto' + i).animate({
+                opacity: '0'
+            }, 500);
+            setTimeout(function() {
+                $('#imagePhoto' + i).css('display', 'none');
+            }, 1000);
+        }
+    })
 
     $(".tdParent").click(function() {
         for (var i = 0; i < totalUserPosts; i++) {
