@@ -69,6 +69,22 @@ class User extends Model {
         return $user->attributes['password'];
     }
 
+    //function gets sent the user_id from images and returns the email or owner of the picture.
+    public static function getUserEmail($id){
+        self::dbConnect();
+        $query = 'SELECT * FROM ' . static::$table . ' WHERE id='.$id;
+        
+        $stmt = self::$dbc->prepare($query);
+        $stmt->execute();
+
+        //Store the resultset in a variable named $result
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        
+        
+        return $results['0']['email'];
+    }
+
    
 
 }

@@ -192,13 +192,13 @@ class Model {
 
         //Create select statement using prepared statements
         $query = 'SELECT * FROM ' . static::$table . ' WHERE id = :id';
-
         $stmt = self::$dbc->prepare($query);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
         //Store the resultset in a variable named $result
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
 
         // The following code will set the attributes on the calling object based on the result variable's contents
 

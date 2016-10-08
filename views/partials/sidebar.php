@@ -66,12 +66,32 @@
         </ul>
     </div>
     <div class="hline"></div>
-    <div class="showPost">Sort</div>
+    <div class="showPost">Sort By</div>
     <div class="list">
         <ul>
-            <li><a href="name">Name</a></li>
-            <li><a href="price">Price</a></li>
-            <li><a href="date_added">Date Added</a></li>
+            <form method="POST" action="sort">
+                <input type="hidden" value="price" name="sortA">
+                
+                <li><button class="cat" type="submit">Lowest Price</button></li>
+            </form>
+
+            <form method="POST" action="sort">
+                <input type="hidden" value="price" name="sortD">
+
+                <li><button class="cat" type="submit">Highest Price</button></li>
+            </form>
+
+            <form method="POST" action="sort">
+                <input type="hidden" value="date_posted" name="sortD">
+
+                 <li><button class="cat" type="submit">Newest</button></li>
+            </form>
+
+            <form method="POST" action="sort">
+                <input type="hidden" value="date_posted" name="sortA">
+               
+                <li><button class="cat" type="submit">Oldest</button></li>
+            </form>
         </ul>
     </div>
 </div>

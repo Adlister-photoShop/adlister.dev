@@ -134,6 +134,18 @@ function pageController()
             }
             break;
 
+        case '/sort':
+            if(Auth::check()){
+                //get the filtered results
+                
+                $data['tablePhotos'] = getSortedPhotos(Input::get('sort'));
+                // var_dump($data['tablePhotos']);
+                $main_view = '../views/adlister.php';
+            }
+            else{
+                $main_view = '../views/ps_login.php';
+            }
+            break;
 
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';
@@ -143,8 +155,8 @@ function pageController()
 
 
 
-    
-
+    //function takes user_id and returns the email of the user that posted the picture
+    // var_dump(User::getUserEmail(2));
     
     //load the info for the table that has the user's posts every time
     $data['tableUserPosts'] = tableUserPosts();
