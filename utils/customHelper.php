@@ -34,6 +34,7 @@ function signUpFunction(){
 		}
 	}
 }
+
 //function that checks for the user log in
 function logInFunction(){
 	$username = Input::get('email');	
@@ -76,6 +77,20 @@ function getPhotos(){
 	$content .= '</table>';
 	return $content;
 }
+
+
+function getShowPhoto(){
+	$i=0;
+	$posts = new Post();
+	$arrayOfPosts = $posts->getAllPosts();
+	foreach ($arrayOfPosts as $posts) {
+		$content = "<div class='showImage'><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
+
+		$i++;
+	}
+	return $content;
+}
+
 
 //function returns false if user match is found
 function checkDuplicateEmail($userObject){
@@ -175,6 +190,7 @@ function tableUserPosts(){
 	return $content;
 }
 
+
 function userPostsEdit(){
 	$session = isset($_SESSION['LOGGED_IN_ID']) ? $_SESSION['LOGGED_IN_ID']: 0;
 	$array = Post::getPostsForUser($session);
@@ -198,11 +214,13 @@ function userPostsEdit(){
 	return $content;
 }
 
+
 function userPostsCount(){
 	$session = isset($_SESSION['LOGGED_IN_ID']) ? $_SESSION['LOGGED_IN_ID']: 0;
 	$array = Post::getPostsForUser($session);
 	return count($array);
 }
+
 
 function getCategory(){
 	$content="";
