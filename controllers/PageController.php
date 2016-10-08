@@ -30,6 +30,7 @@ function pageController()
             $data['signUp'] = signUpFunction();
 
             if(Auth::check()){
+                $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -116,8 +117,14 @@ function pageController()
         case '/searchBar':
             if(Auth::check()){
                 //get the filtered results
+
                 $data['tablePhotos'] = getFilteredPhotos();
-                
+                //we know that the search gave no results
+                if(strlen($data['tablePhotos']) <= 40){
+                    //we reassign to get the main view instead
+                    //send a message to infor user.
+                    $data['tablePhotos'] = getPhotos();
+                }
                 //refresh the tables for users posts
                 $data['tableUserPosts'] = tableUserPosts();
                 $main_view = '../views/adlister.php';
@@ -138,7 +145,7 @@ function pageController()
 
     
 
-    $data['tablePhotos'] = getPhotos();
+    // $data['tablePhotos'] = getPhotos();
     //load the info for the table that has the user's posts
     $data['tableUserPosts'] = tableUserPosts();
     // get the table for the photos
