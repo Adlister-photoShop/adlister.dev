@@ -26,7 +26,9 @@
             </form>
         </div>
 
-        <?php require '../views/ads/edit.php'; ?>
+
+        <?=userPostsEdit()?>
+        <input id="totalUserPosts" type="hidden" value=<?= userPostsCount() ?>>
         
       </div>
     </div>
