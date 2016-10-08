@@ -3,5 +3,8 @@
         <?= getPhotos() ?>
     </div>
 </div>
+<div class='over'>
+<?= getShowPhoto() ?>
+</div>
 
 <input id="totalPost" type="hidden" value=<?= Post::getNumberOfPosts() ?>>
