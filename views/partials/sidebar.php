@@ -22,37 +22,37 @@
         <ul>
             <form method="POST" action="category">
             <input type="hidden" value="animals" name="animals">
-            <li><button type="submit">Animals</button></li>
+            <li><button class="cat" type="submit">Animals</button></li>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="architectural" name="architectural">
-            <li><button type="submit">Architectural</button></li>
+            <li><button class="cat" type="submit">Architectural</button></li>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="cars" name="cars">
-            <li><button type="submit">Cars</button></li>
+            <li><button class="cat" type="submit">Cars</button></li>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="nature" name="nature">
-            <li><button type="submit">Nature</button></li>
+            <li><button class="cat" type="submit">Nature</button></li>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="portraits" name="portraits">
-            <li><button type="submit">Portraits</button></li>
+            <li><button class="cat" type="submit">Portraits</button></li>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="sports" name="sports">
-            <li><button type="submit">Architectural</button></li>
+            <li><button class="cat" type="submit">Architectural</button></li>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="other" name="other">
-            <li><button type="submit">Other</button></li>
+            <li><button class="cat" type="submit">Other</button></li>
             </form>
 
             <!-- <li><a href="architectural">Architectural</a></li>

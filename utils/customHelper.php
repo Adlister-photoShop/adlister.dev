@@ -56,7 +56,7 @@ function getPhotos(){
 	$posts = new Post();
 	$arrayOfPosts = $posts->getAllPosts();
 	$content ="";
-	$content = '<table>';
+	$content = "<table class='mainTable'>";
 	$content .= "<tr>";
 	foreach ($arrayOfPosts as $posts) {
 		
@@ -64,8 +64,8 @@ function getPhotos(){
 			$content .= "</tr>";
 			$content .= "<tr>";
 		}
-		$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg' id='image" . $i ."'>" . " ";
+		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
+		$content .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
 		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
 		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
@@ -164,10 +164,8 @@ function tableUserPosts(){
 			$content .= "</tr>";
 			$content .= "<tr>";
 		}
-		$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg showEditPost' id='image" . $i ."'>" . " ";
-		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
-		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+		$content .= "<td><div class='tdParent' id='cell" . $i . "'>";
+		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg showEditPost' id='userImage" . $i ."'></div></td>";
 
 		$i++;
 	
@@ -175,6 +173,35 @@ function tableUserPosts(){
 
 	$content .= '</table>';
 	return $content;
+}
+
+function userPostsEdit(){
+	$session = isset($_SESSION['LOGGED_IN_ID']) ? $_SESSION['LOGGED_IN_ID']: 0;
+	$array = Post::getPostsForUser($session);
+	$i=0;
+	$posts = new Post();
+	
+	$content ="";
+	foreach ($array as $posts) {
+		
+		$content .= "<div class='editUserPhotos' id='editUserPhoto" . $i . "'><img src='" . $posts['image_url'] . "' class='editPhoto'><form method='POST' class='editForm'>";
+		$content .= "<input type='hidden' name='id' value='" . $posts['id'] . "'><input type='text' name='name' placeholder='Title' class='inputs' required='true'><input type='number' name='price' placeholder='Asking Price' class='inputs' required='true'>";
+		$content .= "<textarea name='description' placeholder='Description' class='inputs'></textarea><label for='catagories'>What is the Genre of your photo?</label>";
+		$content .= "<select class='catagories' name='category'><option value='animals'>Animals</option><option value='architectural' selected>Architectural</option><option value='cars'>Cars</option>";
+		$content .= "<option value='nature' selected>Nature</option><option value='portraits'>Portraits</option><option value='sports' selected>Sports</option><option value='other' selected>Other</option></select><br><button type='submit' class='logInBtn'>Edit</button></form>";
+		$content .= "<form method='POST' action='editDelete'><input type='hidden' name='id' value='" . $posts['id'] . "'><button type='submit' class='editPostBtn'>Delete</button></form></div>";
+
+		$i++;
+	
+	}
+
+	return $content;
+}
+
+function userPostsCount(){
+	$session = isset($_SESSION['LOGGED_IN_ID']) ? $_SESSION['LOGGED_IN_ID']: 0;
+	$array = Post::getPostsForUser($session);
+	return count($array);
 }
 
 function getCategory(){
@@ -188,7 +215,7 @@ function getCategory(){
 		}
 		
 
-		if(Input::get('architectural')== 'architectural'){
+		if(Input::get('architectural') == 'architectural'){
 			$content = Post::getPostsFiltered('architectural');
 			return $content;
 		}
