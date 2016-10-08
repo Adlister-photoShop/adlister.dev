@@ -49,7 +49,7 @@
 
             <form method="POST" action="category">
             <input type="hidden" value="sports" name="sports">
-            <li><button class="cat" type="submit">Architectural</button></li>
+            <li><button class="cat" type="submit">Sports</button></li>
             </form>
 
             <form method="POST" action="category">
