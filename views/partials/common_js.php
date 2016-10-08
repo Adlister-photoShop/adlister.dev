@@ -1,12 +1,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+<script src="/js/bootstrap.min.js"></script>
 
 <script>
 
 "use strict";
 
     var totalPost = $('#totalPost').val();
+    var totalUserPosts = $('#totalUserPosts').val();
  
     function animationInClick(clicker, element, animation, opacity) {
         clicker = $(clicker)
@@ -36,16 +36,30 @@
             });
     }
 
+    function animationHover(element, animation){
+        element = $(element);
+        element.hover(
+            function() {
+                element.addClass('animated ' + animation);        
+            },
+            function(){
+                //wait for animation to finish before removing classes
+                window.setTimeout( function(){
+                    element.removeClass('animated ' + animation);
+                }, 1800);         
+            });
+    }
+
     $(".itemsImg").hover(function() {
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
-                $('#title' + i).animate({
+                $('#title' + i).stop().animate({
                     opacity: '1'
                 }, 400);
-                $('#description' + i).animate({
+                $('#description' + i).stop().animate({
                     opacity: '1'
                 }, 400);
-                $('#price' + i).animate({
+                $('#price' + i).stop().animate({
                     opacity: '1'
                 }, 400);
             }
@@ -53,15 +67,28 @@
     }, function() {
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
-                $('#title' + i).animate({
+                $('#title' + i).stop().animate({
                     opacity: '0'
                 }, 300);
-                $('#description' + i).animate({
+                $('#description' + i).stop().animate({
                     opacity: '0'
                 }, 300);
-                $('#price' + i).animate({
+                $('#price' + i).stop().animate({
                     opacity: '0'
                 }, 300);
+            }
+        }
+    });
+
+    $(".tdParent").click(function() {
+        for (var i = 0; i < totalUserPosts; i++) {
+            if ($(this).attr('id') == 'cell' + i) {
+                $('.userPhotos').css('display', 'none');
+                $('.profileEdit').css('display', 'none');
+                $('#editUserPhoto' + i).css('display', 'block');
+                $('#editUserPhoto' + i).animate({
+                    opacity: '1'
+                }, 500);
             }
         }
     });
@@ -104,21 +131,11 @@
         }, 600);
     });
 
-    $('.showEditPost').click(function() {
-        $('.userPhotos').css('display', 'none');
-        $('.profileEdit').css('display', 'none');
-        $('.editUserPhotos').css('display', 'block');
-        $('.editUserPhotos').animate({
-            opacity: '1'
-        }, 600);
-        $('.userPhotos').animate({
-            opacity: '0'
-        }, 600);
-    });
 
     animationInClick('.hamburger', '.sideNav', 'fadeInLeft', '0.8');
     animationOutClick('.logInExit', '.sideNav', 'fadeOutLeft');
     animationInClick('.hamburger', '.sideText', 'slideInLeft', '1');
     animationOutClick('.logInExit', '.sideText', 'fadeOutLeft');
+    animationHover('.hamburger', 'rubberBand');
 
 </script>
