@@ -297,6 +297,9 @@ function getFilteredPhotos(){
 		$result = "<table class='mainTable'>";
 		$result .= "<tr>";
 
+		// $newArr = unique_multidim_array($content, 'id');
+		// var_dump($content);
+		$id=[];
 		foreach ($content as $arrays) {
 
 			foreach ($arrays as $posts) {
@@ -305,6 +308,18 @@ function getFilteredPhotos(){
 					$result .= "</tr>";
 					$result .= "<tr>";
 				}
+				//runs through the id's
+				for ($i=0; $i < count($id); $i++) {
+					//if the id has already been saved in the array
+					//means repeated id
+					if($id[$i] == $posts['id'])
+						continue 2;
+					//get out of this for loop and skil one iteration of the inner for each
+				}
+				//if we didn't have that id in the array now we do
+				$id []= $posts['id'];//save in the array of id's
+
+
 				$result .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
 				$result .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
 				$result .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
