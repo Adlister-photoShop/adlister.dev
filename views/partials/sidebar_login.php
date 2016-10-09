@@ -7,11 +7,10 @@
 </div>
 <div class="sideText">
     <button class="logInExit">X</button>
-    <div class="showProfile">Hello <?=$name?></div>
+    <div class="showProfile">Welcome to photoSHOP</div>
     <div class="logout"><a href="logout">Log Out</a></div>
     
-    <div><a class="showProfile" data-toggle="modal" data-target="#userAccount">Profile</a></div>
-    <div><a class="showPost" data-toggle="modal" data-target="#postPhoto">Post Photo</a></div>
+    <div><a class="showProfile" data-toggle="modal" data-target="#login">Log In</a></div>
     <div class="hline"></div>
 
     <form method="POST" class="search" action="/searchBar">
@@ -93,4 +92,52 @@
             </form>
         </ul>
     </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Sell Your Photo</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="logInContainer">
+            <div class="logInParent">
+                <div class="logInToggle">
+                    <button class="logInShow">Log In</button>
+                    <button class="signUpShow">Sign Up</button>
+                </div>
+                
+                <div class="logIn">
+                    <form method="POST" id="logIn" action="/">
+                        <input type="text" name="email" placeholder="Email" class="inputs" autofocus>
+                        <input type="password" name="password" placeholder="Password" class="inputs">
+                        <button type="submit" class="logInBtn">Log in</button>
+                    </form>
+                </div>
+
+                <div class="signUp" >
+                    <form method="POST" action="/">
+                        <input type="text" name="name" placeholder="Your Name" class="inputs" required="true">
+                        <input type="text" name="email" placeholder="Email" class="inputs" required="true">
+                        <input type="password" name="password" placeholder="Password" class="inputs" required="true">
+                        <input type="password" name="conPassword" placeholder="Confirm Password" class="inputs" required="true">
+                        <button type="submit" class="logInBtn">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
