@@ -22,6 +22,11 @@
     <div class="showPost">Catagories</div>
     <div class="list">
         <ul>
+            <form method="POST" action="/">
+            <input type="hidden" value="animals" name="animals">
+            <li><button class="cat" type="submit">All</button></li>
+            </form>
+
             <form method="POST" action="category">
             <input type="hidden" value="animals" name="animals">
             <li><button class="cat" type="submit">Animals</button></li>
