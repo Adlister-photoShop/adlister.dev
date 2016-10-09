@@ -96,7 +96,7 @@
         }
     });
 
-    $('.over').click(function() {
+    $('.closeShowPhotos').click(function() {
         for (var i = 0; i < totalPost; i++) {
             $('#imagePhoto' + i).animate({
                 opacity: '0'
