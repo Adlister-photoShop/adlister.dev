@@ -56,25 +56,9 @@ function getPhotos(){
 	$i=0;
 	$posts = new Post();
 	$arrayOfPosts = $posts->getAllPosts();
-	$content ="";
-	$content = "<table class='mainTable'>";
-	$content .= "<tr>";
-	foreach ($arrayOfPosts as $posts) {
-		
-		if($i % 3 == 0 && $i != 0){
-			$content .= "</tr>";
-			$content .= "<tr>";
-		}
-		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
-		$content .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
-		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
-		$i++;
+	$content = getTableFormat($arrayOfPosts);
 	
-	}
-
-	$content .= '</table>';
 	return $content;
 }
 
@@ -171,26 +155,9 @@ function imageUploader(){
 function tableUserPosts(){
 	$session = isset($_SESSION['LOGGED_IN_ID']) ? $_SESSION['LOGGED_IN_ID']: 0;
 	$array = Post::getPostsForUser($session);
-	$i=0;
-	$posts = new Post();
-	
-	$content ="";
-	$content = '<table>';
-	$content .= "<tr>";
-	foreach ($array as $posts) {
-		
-		if($i % 3 == 0 && $i != 0){
-			$content .= "</tr>";
-			$content .= "<tr>";
-		}
-		$content .= "<td><div class='tdParent' id='cell" . $i . "'>";
-		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg showEditPost' id='userImage" . $i ."'></div></td>";
 
-		$i++;
+	$content = getTableFormat($array);
 	
-	}
-
-	$content .= '</table>';
 	return $content;
 }
 
@@ -284,26 +251,9 @@ function getCategory(){
 
 function showCategory($array){
 	$posts = new Post();
-	$i=0;
-	$content ="";
-	$content = "<table class='mainTable'>";
-	$content .= "<tr>";
-	foreach ($array as $posts) {
-		
-		if($i % 3 == 0 && $i != 0){
-			$content .= "</tr>";
-			$content .= "<tr>";
-		}
-		$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
-		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
-		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
-		$i++;
+	$content = getTableFormat($array);
 	
-	}
-
-	$content .= '</table>';
 	return $content;
 }
 
@@ -346,7 +296,9 @@ function getFilteredPhotos(){
 
 		$result = "<table class='mainTable'>";
 		$result .= "<tr>";
+
 		foreach ($content as $arrays) {
+
 			foreach ($arrays as $posts) {
 					
 				if($i % 3 == 0 && $i != 0){
