@@ -23,6 +23,9 @@ function pageController()
         $request = $_SERVER['REQUEST_URI'];
     }
 
+
+
+
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
@@ -35,6 +38,7 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
+               
             }
             else{
                 $main_view = '../views/ps_login.php';
@@ -49,6 +53,7 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
+                
             }else{
                 $main_view = '../views/ps_login.php';
             }
@@ -62,6 +67,7 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
+               
             }else{
                 $main_view = '../views/ps_login.php';
             }
@@ -80,6 +86,7 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
+            
             }
             else{
                 $main_view = '../views/ps_login.php';
@@ -89,12 +96,14 @@ function pageController()
             if(Auth::check()){
                 $data['tablePhotos'] = getPhotos();
                 $arrayCategory = getCategory();
-                
+
                 $data['category'] = showCategory($arrayCategory);
                 $main_view = '../views/ads/category.php';
+
                 //
                 $data['arraySort'] = getShowPhoto('category');
                 //
+
             }
             else{
                 $main_view = '../views/ps_login.php';
@@ -109,6 +118,9 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
+
+               
+
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -124,7 +136,7 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
-                
+
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -139,6 +151,10 @@ function pageController()
 
                 //
                 $data['arraySort'] = getShowPhoto();
+                //
+
+                //
+                $data['arrayCount'] = Post::getNumberOfPosts();
                 //
 
                 //we know that the search gave no results
@@ -166,6 +182,11 @@ function pageController()
                 $data['arraySort'] = getShowPhoto('sort');
                 //
 
+                // //
+                // $data['arrayCount'] = count($data['arraySort']);
+                // //
+
+
                 // var_dump($data['arraySort']);
 
                 $main_view = '../views/adlister.php';
@@ -181,7 +202,7 @@ function pageController()
     }
 
 
-
+    
 
     //function takes user_id and returns the email of the user that posted the picture
     // var_dump(User::getUserEmail(2));

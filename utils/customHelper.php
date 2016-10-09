@@ -71,6 +71,7 @@ function getShowPhoto($case='normal'){
 			echo"sort case";
 			//getting special array for sort
 			$arrayOfPosts = getArraySort(Input::get('sort'));
+			var_dump($arrayOfPosts);
 			break;
 		case 'category':
 			echo "category case";
