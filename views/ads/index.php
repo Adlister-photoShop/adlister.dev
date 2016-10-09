@@ -4,7 +4,8 @@
     </div>
 </div>
 <div class='over'>
-<?= getShowPhoto() ?>
+<!-- <?= getShowPhoto() ?> -->
+<?= $arraySort ?>
 
 </div>
 <div class='messageOver'>

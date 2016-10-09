@@ -23,6 +23,9 @@ function pageController()
         $request = $_SERVER['REQUEST_URI'];
     }
 
+
+
+
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
@@ -32,6 +35,10 @@ function pageController()
             if(Auth::check()){
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
+                //
+                $data['arraySort'] = getShowPhoto();
+                //
+               
             }
             else{
                 $main_view = '../views/ps_login.php';
@@ -43,6 +50,10 @@ function pageController()
                 // $data['tableUserPosts'] = tableUserPosts();
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
+                //
+                $data['arraySort'] = getShowPhoto();
+                //
+                
             }else{
                 $main_view = '../views/ps_login.php';
             }
@@ -53,6 +64,10 @@ function pageController()
                 imageUploader();
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
+                //
+                $data['arraySort'] = getShowPhoto();
+                //
+               
             }else{
                 $main_view = '../views/ps_login.php';
             }
@@ -66,7 +81,12 @@ function pageController()
         case '/userEdit':
             if(Auth::check()){
                 $data['updateUser'] = updateUser();
+                $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
+                //
+                $data['arraySort'] = getShowPhoto();
+                //
+            
             }
             else{
                 $main_view = '../views/ps_login.php';
@@ -76,8 +96,14 @@ function pageController()
             if(Auth::check()){
                 $data['tablePhotos'] = getPhotos();
                 $arrayCategory = getCategory();
+
                 $data['category'] = showCategory($arrayCategory);
                 $main_view = '../views/ads/category.php';
+
+                //
+                $data['arraySort'] = getShowPhoto('category');
+                //
+
             }
             else{
                 $main_view = '../views/ps_login.php';
@@ -89,9 +115,12 @@ function pageController()
                 $data['tablePhotos'] = getPhotos();
 
                 $data['editPost'] = editPost();//make
+                //
+                $data['arraySort'] = getShowPhoto();
+                //
 
-                //refresh the tables for users posts
-                // $data['tableUserPosts'] = tableUserPosts();
+               
+
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -104,9 +133,10 @@ function pageController()
 
                 $data['tablePhotos'] = getPhotos();
 
-                
-                //refresh the tables for users posts
-                // $data['tableUserPosts'] = tableUserPosts();
+                //
+                $data['arraySort'] = getShowPhoto();
+                //
+
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -117,8 +147,16 @@ function pageController()
         case '/searchBar':
             if(Auth::check()){
                 //get the filtered results
-
                 $data['tablePhotos'] = getFilteredPhotos();
+
+                //
+                $data['arraySort'] = getShowPhoto();
+                //
+
+                //
+                $data['arrayCount'] = Post::getNumberOfPosts();
+                //
+
                 //we know that the search gave no results
                 if(strlen($data['tablePhotos']) <= 40){
                     //we reassign to get the main view instead
@@ -139,7 +177,18 @@ function pageController()
                 //get the filtered results
                 
                 $data['tablePhotos'] = getSortedPhotos(Input::get('sort'));
-                // var_dump($data['tablePhotos']);
+
+                //sending the special case where our array changes
+                $data['arraySort'] = getShowPhoto('sort');
+                //
+
+                // //
+                // $data['arrayCount'] = count($data['arraySort']);
+                // //
+
+
+                // var_dump($data['arraySort']);
+
                 $main_view = '../views/adlister.php';
             }
             else{
@@ -153,7 +202,7 @@ function pageController()
     }
 
 
-
+    
 
     //function takes user_id and returns the email of the user that posted the picture
     // var_dump(User::getUserEmail(2));
