@@ -93,6 +93,8 @@ function pageController()
 
                 //refresh the tables for users posts
                 // $data['tableUserPosts'] = tableUserPosts();
+                // var_dump(tableUserPosts());
+
                 $main_view = '../views/adlister.php';
             }
             else{
