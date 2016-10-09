@@ -84,8 +84,12 @@
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
                 $('.over').css('z-index', '1');
+                $('#messageShow' + i).css('display', 'block');
                 $('#imagePhoto' + i).css('display', 'block');
                 $('#imagePhoto' + i).animate({
+                    opacity: '1'
+                }, 300);
+                $('#messageShow' + i).animate({
                     opacity: '1'
                 }, 300);
             }
@@ -94,13 +98,13 @@
 
     $('.over').click(function() {
         for (var i = 0; i < totalPost; i++) {
-            $('.over').css('z-index', '-1');
             $('#imagePhoto' + i).animate({
                 opacity: '0'
             }, 500);
             setTimeout(function() {
                 $('#imagePhoto' + i).css('display', 'none');
-            }, 1000);
+                $('.over').css('z-index', '-1');
+            }, 500);
         }
     })
 
