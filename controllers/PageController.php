@@ -32,17 +32,17 @@ function pageController()
             $data['login'] = logInFunction();
             $data['signUp'] = signUpFunction();
 
-            if(Auth::check()){
-                $data['tablePhotos'] = getPhotos();
-                $main_view = '../views/adlister.php';
-                //
-                $data['arraySort'] = getShowPhoto();
-                //
+            $data['tablePhotos'] = getPhotos();
+            $main_view = '../views/adlister.php';
+            //
+            $data['arraySort'] = getShowPhoto();
+            //
+            // if(Auth::check()){
                
-            }
-            else{
-                $main_view = '../views/ps_login.php';
-            }
+            // }
+            // else{
+            //     $main_view = '../views/ps_login.php';
+            // }
             break;
 
         case '/adlister':
@@ -93,7 +93,7 @@ function pageController()
             }
             break;
         case '/category':
-            if(Auth::check()){
+            // if(Auth::check()){
                 $data['tablePhotos'] = getPhotos();
                 $arrayCategory = getCategory();
 
@@ -104,10 +104,10 @@ function pageController()
                 $data['arraySort'] = getShowPhoto('category');
                 //
 
-            }
-            else{
-                $main_view = '../views/ps_login.php';
-            }
+            // }
+            // else{
+            //     $main_view = '../views/ps_login.php';
+            // }
             break;
 
         case '/editPost':
@@ -145,7 +145,7 @@ function pageController()
             break;
 
         case '/searchBar':
-            if(Auth::check()){
+            // if(Auth::check()){
                 //get the filtered results
                 $data['tablePhotos'] = getFilteredPhotos();
 
@@ -166,14 +166,14 @@ function pageController()
                 //refresh the tables for users posts
                 // $data['tableUserPosts'] = tableUserPosts();
                 $main_view = '../views/adlister.php';
-            }
-            else{
-                $main_view = '../views/ps_login.php';
-            }
+            // }
+            // else{
+            //     $main_view = '../views/ps_login.php';
+            // }
             break;
 
         case '/sort':
-            if(Auth::check()){
+            // if(Auth::check()){
                 //get the filtered results
                 
                 $data['tablePhotos'] = getSortedPhotos(Input::get('sort'));
@@ -190,10 +190,10 @@ function pageController()
                 // var_dump($data['arraySort']);
 
                 $main_view = '../views/adlister.php';
-            }
-            else{
-                $main_view = '../views/ps_login.php';
-            }
+            // }
+            // else{
+            //     $main_view = '../views/ps_login.php';
+            // }
             break;
 
         default:    // displays 404 if route not specified above
