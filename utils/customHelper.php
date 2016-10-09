@@ -326,7 +326,7 @@ function getFilteredPhotos(){
 		$word = Input::get('searchText');
 
 		$content = Post::getFilteredResults($word);
-
+		
 		$result = "<table class='mainTable'>";
 		$result .= "<tr>";
 
@@ -345,8 +345,10 @@ function getFilteredPhotos(){
 				for ($i=0; $i < count($id); $i++) {
 					//if the id has already been saved in the array
 					//means repeated id
-					if($id[$i] == $posts['id'])
+					if($id[$i] == $posts['id']){
+						$i++;
 						continue 2;
+					}
 					//get out of this for loop and skil one iteration of the inner for each
 				}
 				//if we didn't have that id in the array now we do

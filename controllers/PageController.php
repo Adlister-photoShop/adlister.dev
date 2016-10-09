@@ -122,6 +122,7 @@ function pageController()
                 //get the filtered results
 
                 $data['tablePhotos'] = getFilteredPhotos();
+                
                 //we know that the search gave no results
                 if(strlen($data['tablePhotos']) <= 40){
                     //we reassign to get the main view instead
