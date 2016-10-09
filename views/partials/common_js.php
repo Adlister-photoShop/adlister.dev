@@ -81,9 +81,10 @@
     });
 
     $(".itemsImg").click(function() {
+        $('.closeShowPhotos').css('display', 'block');
+        $('.over').css('z-index', '1');
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
-                $('.over').css('z-index', '1');
                 $('#messageShow' + i).css('display', 'block');
                 $('#imagePhoto' + i).css('display', 'block');
                 $('#imagePhoto' + i).animate({
@@ -92,21 +93,32 @@
                 $('#messageShow' + i).animate({
                     opacity: '1'
                 }, 300);
+                $('.closeShowPhotos').animate({
+                    opacity: '1'
+                }, 300);
             }
         }
     });
 
     $('.closeShowPhotos').click(function() {
+        $('.closeShowPhotos').animate({
+                opacity: '0'
+            }, 300);
         for (var i = 0; i < totalPost; i++) {
             $('#imagePhoto' + i).animate({
                 opacity: '0'
-            }, 500);
-            setTimeout(function() {
-                $('#imagePhoto' + i).css('display', 'none');
-                $('.over').css('z-index', '-1');
-            }, 500);
+                }, 300);
+            $('#messageShow' + i).animate({
+                    opacity: '0'
+                }, 300);
+        setTimeout(function() {
+            $('#imagePhoto' + i).css('display', 'none');
+            $('.message').css('display', 'none');
+            $('.closeShowPhotos').css('display', 'none');
+            $('.over').css('z-index', '-1');
+        }, 300);
         }
-    })
+    });
 
     $(".tdParent").click(function() {
         for (var i = 0; i < totalUserPosts; i++) {

@@ -67,12 +67,10 @@ function getShowPhoto(){
 	$i=0;
 	$posts = new Post();
 	$arrayOfPosts = $posts->getAllPosts();
+	var_dump($arrayOfPosts);
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
-		$content .= "<div class='showImage' id='showImageId" . $i . "'><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
-		$content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='editForm' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
-		$content .= "<input type='email' name='senderEmail' placeholder='Your Email' class='inputs' required='true'>";
-		$content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs'></textarea><br><button type='submit'>Send</button></form></div>";
+		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='closeShowPhotos'>CLOSE X</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
 
 		$i++;
 	}
@@ -85,8 +83,8 @@ function getShowMessage(){
 	$arrayOfPosts = $posts->getAllPosts();
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
-		$content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='editForm' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
-		$content .= "<input type='email' name='senderEmail' placeholder='Your Email' class='inputs' required='true'>";
+		$content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='messageForm' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
+		$content .= "<input type='text' name='name' placeholder='Your Contact Info' class='inputs' required='true'>";
 		$content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs'></textarea><br><button type='submit'>Send</button></form></div>";
 
 		$i++;
@@ -233,6 +231,7 @@ function getCategory(){
 
 		if(Input::get('animals') == 'animals'){
 			$content = Post::getPostsFiltered('animals');
+			var_dump($content);
 			return $content;
 			
 		}
