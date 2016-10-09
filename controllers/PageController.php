@@ -66,6 +66,7 @@ function pageController()
         case '/userEdit':
             if(Auth::check()){
                 $data['updateUser'] = updateUser();
+                $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
             }
             else{
