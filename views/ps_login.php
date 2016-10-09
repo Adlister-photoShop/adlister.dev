@@ -1,10 +1,6 @@
-<div class="container front">
-    <div class="banner">
-        <img src="/img/placeholder.png" class="bannerImg">
-    </div>
-</div>
+    <?php require '../views/partials/sidebar_login.php'; ?>
 
-<div class="logInContainer">
+<!-- <div class="logInContainer">
     <div class="logInParent">
         <div class="logInToggle">
             <button class="logInShow">Log In</button>
@@ -29,4 +25,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->

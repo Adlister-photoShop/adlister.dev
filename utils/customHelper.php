@@ -66,6 +66,7 @@ function getPhotos(){
 function getShowPhoto($case='normal'){
 	$i=0;
 	$posts = new Post();
+
 	switch ($case) {
 		case 'sort':
 			echo"sort case";
@@ -86,7 +87,6 @@ function getShowPhoto($case='normal'){
 			$arrayOfPosts = $posts->getAllPosts();
 			break;
 	}
-	
 	
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
