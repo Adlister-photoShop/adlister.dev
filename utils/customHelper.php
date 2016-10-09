@@ -63,10 +63,31 @@ function getPhotos(){
 }
 
 
-function getShowPhoto(){
+function getShowPhoto($case='normal'){
 	$i=0;
 	$posts = new Post();
-	$arrayOfPosts = $posts->getAllPosts();
+
+	switch ($case) {
+		case 'sort':
+			echo"sort case";
+			//getting special array for sort
+			$arrayOfPosts = getArraySort(Input::get('sort'));
+			var_dump($arrayOfPosts);
+			break;
+		case 'category':
+			echo "category case";
+			//getting special array for category
+			$arrayOfPosts = getCategory();
+			var_dump($arrayOfPosts);
+			break;
+		case 'normal':
+			$arrayOfPosts = $posts->getAllPosts();
+			break;
+		default:
+			$arrayOfPosts = $posts->getAllPosts();
+			break;
+	}
+	
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
 		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='closeShowPhotos'>CLOSE X</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
@@ -230,7 +251,6 @@ function getCategory(){
 
 		if(Input::get('animals') == 'animals'){
 			$content = Post::getPostsFiltered('animals');
-			var_dump($content);
 			return $content;
 			
 		}
@@ -325,7 +345,7 @@ function getFilteredPhotos(){
 		$word = Input::get('searchText');
 
 		$content = Post::getFilteredResults($word);
-
+		
 		$result = "<table class='mainTable'>";
 		$result .= "<tr>";
 
@@ -344,8 +364,10 @@ function getFilteredPhotos(){
 				for ($i=0; $i < count($id); $i++) {
 					//if the id has already been saved in the array
 					//means repeated id
-					if($id[$i] == $posts['id'])
+					if($id[$i] == $posts['id']){
+						$i++;
 						continue 2;
+					}
 					//get out of this for loop and skil one iteration of the inner for each
 				}
 				//if we didn't have that id in the array now we do
@@ -366,7 +388,19 @@ function getFilteredPhotos(){
 	}
 }
 
-
+function getArraySort($sortBy){
+	$content ="";
+	if(Input::has('sortA')){
+		$content = Post::sortBy(Input::get('sortA'), 'ASC');
+	}
+	else if(Input::has('sortD')){
+		$content = Post::sortBy(Input::get('sortD'), 'DESC');
+	}
+	else{
+		return "Error in sort";
+	}
+	return $content;
+}
 
 function getSortedPhotos($sortBy){
 	$content ="";
