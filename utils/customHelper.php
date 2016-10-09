@@ -58,25 +58,7 @@ function getPhotos(){
 	$arrayOfPosts = $posts->getAllPosts();
 
 	$content = getTableFormat($arrayOfPosts);
-	// $content ="";
-	// $content = "<table class='mainTable'>";
-	// $content .= "<tr>";
-	// foreach ($arrayOfPosts as $posts) {
-		
-	// 	if($i % 3 == 0 && $i != 0){
-	// 		$content .= "</tr>";
-	// 		$content .= "<tr>";
-	// 	}
-	// 	$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
-	// 	$content .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-	// 	$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
-	// 	$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
-
-	// 	$i++;
 	
-	// }
-
-	// $content .= '</table>';
 	return $content;
 }
 
@@ -175,26 +157,7 @@ function tableUserPosts(){
 	$array = Post::getPostsForUser($session);
 
 	$content = getTableFormat($array);
-	// $i=0;
-	// $posts = new Post();
 	
-	// $content ="";
-	// $content = '<table>';
-	// $content .= "<tr>";
-	// foreach ($array as $posts) {
-		
-	// 	if($i % 3 == 0 && $i != 0){
-	// 		$content .= "</tr>";
-	// 		$content .= "<tr>";
-	// 	}
-	// 	$content .= "<td><div class='tdParent' id='cell" . $i . "'>";
-	// 	$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg showEditPost' id='userImage" . $i ."'></div></td>";
-
-	// 	$i++;
-	
-	// }
-
-	// $content .= '</table>';
 	return $content;
 }
 
@@ -290,26 +253,7 @@ function showCategory($array){
 	$posts = new Post();
 
 	$content = getTableFormat($array);
-	// $i=0;
-	// $content ="";
-	// $content = "<table class='mainTable'>";
-	// $content .= "<tr>";
-	// foreach ($array as $posts) {
-		
-	// 	if($i % 3 == 0 && $i != 0){
-	// 		$content .= "</tr>";
-	// 		$content .= "<tr>";
-	// 	}
-	// 	$content .= "<td><div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-	// 	$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
-	// 	$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
-	// 	$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
-
-	// 	$i++;
 	
-	// }
-
-	// $content .= '</table>';
 	return $content;
 }
 
