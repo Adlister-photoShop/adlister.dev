@@ -83,12 +83,13 @@ function getShowPhoto(){
 	$i=0;
 	$posts = new Post();
 	$arrayOfPosts = $posts->getAllPosts();
-	var_dump($arrayOfPosts);
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
 		$content .= "<div class='showImage' id='showImageId" . $i . "'><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
-		$content .= "<div class='message'><form method='POST' class='editForm' action='editPost'>";
-		$content .= 
+		// $content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='editForm' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
+		// $content .= "<input type='email' name='senderEmail' placeholder='Your Email' class='inputs' required='true'>";
+		// $content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs'></textarea><br><button type='submit'>Send</button></form></div>";
+
 		$i++;
 	}
 	return $content;

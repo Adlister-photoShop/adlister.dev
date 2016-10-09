@@ -64,10 +64,10 @@ button {
 }
 
 .front {
-	position: relative;
+	position: absolute;
 	width: 100%;
 	padding: 0px;
-	margin-bottom: 20px;
+
 }
 
 .nbar {
@@ -344,6 +344,16 @@ ul {
     left: 50%;
     transform: translate(-50%, 0);
     text-align: center;
+}
+
+.message {
+	width: 350px;
+	height: auto;
+	position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    display: none;
 }
 
 .over {

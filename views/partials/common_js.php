@@ -84,8 +84,12 @@
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
                 $('.over').css('z-index', '1');
+                $('#messageShow' + i).css('display', 'block');
                 $('#imagePhoto' + i).css('display', 'block');
                 $('#imagePhoto' + i).animate({
+                    opacity: '1'
+                }, 300);
+                $('#messageShow' + i).animate({
                     opacity: '1'
                 }, 300);
             }
