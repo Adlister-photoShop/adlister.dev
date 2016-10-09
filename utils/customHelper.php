@@ -63,11 +63,30 @@ function getPhotos(){
 }
 
 
-function getShowPhoto(){
+function getShowPhoto($case='normal'){
 	$i=0;
 	$posts = new Post();
-	$arrayOfPosts = $posts->getAllPosts();
-	var_dump($arrayOfPosts);
+	switch ($case) {
+		case 'sort':
+			echo"sort case";
+			//getting special array for sort
+			$arrayOfPosts = getArraySort(Input::get('sort'));
+			break;
+		case 'category':
+			echo "category case";
+			//getting special array for category
+			$arrayOfPosts = getCategory();
+			var_dump($arrayOfPosts);
+			break;
+		case 'normal':
+			$arrayOfPosts = $posts->getAllPosts();
+			break;
+		default:
+			$arrayOfPosts = $posts->getAllPosts();
+			break;
+	}
+	
+	
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
 		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='closeShowPhotos'>CLOSE X</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
@@ -231,7 +250,6 @@ function getCategory(){
 
 		if(Input::get('animals') == 'animals'){
 			$content = Post::getPostsFiltered('animals');
-			var_dump($content);
 			return $content;
 			
 		}
@@ -369,7 +387,19 @@ function getFilteredPhotos(){
 	}
 }
 
-
+function getArraySort($sortBy){
+	$content ="";
+	if(Input::has('sortA')){
+		$content = Post::sortBy(Input::get('sortA'), 'ASC');
+	}
+	else if(Input::has('sortD')){
+		$content = Post::sortBy(Input::get('sortD'), 'DESC');
+	}
+	else{
+		return "Error in sort";
+	}
+	return $content;
+}
 
 function getSortedPhotos($sortBy){
 	$content ="";
