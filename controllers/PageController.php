@@ -23,14 +23,17 @@ function pageController()
         $request = $_SERVER['REQUEST_URI'];
     }
 
-
-
+    //variable that will spit out the errors
+    $data['errorMessage'] = "";
 
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
             $data['login'] = logInFunction();
+            var_dump($data['loging']);
+
             $data['signUp'] = signUpFunction();
+            var_dump($data['signUp']);
 
             $data['tablePhotos'] = getPhotos();
             $main_view = '../views/adlister.php';
