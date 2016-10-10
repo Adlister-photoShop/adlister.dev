@@ -13,7 +13,7 @@ if(Auth::check()){
 	if(!empty($errorMessageSignUp)){
 		echo "<div class='alert alert-danger text-center'>".$errorMessageSignUp."</div>";
 	}
-	else{
+	else if (!empty($errorMessageLogIn)){
 		echo "<div class='alert alert-danger text-center'>".$errorMessageLogIn."</div>";
 	}
 ?>
