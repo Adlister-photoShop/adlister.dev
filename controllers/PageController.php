@@ -88,8 +88,11 @@ function pageController()
         case '/userEdit':
             if(Auth::check()){
                 $data['updateUser'] = updateUser();
-
-                $data['errorMessage'] = !empty($data['updateUser'])? $data['updateUser']:"";
+                //error message
+                $data['errorMessageUserEdit'] = !empty($data['updateUser'])? $data['updateUser']:"";
+                //success message
+                if(empty($data['updateUser']))
+                    $data['noErrorEdit'] = "User successfully edited.";
 
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
@@ -128,7 +131,7 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
-
+                $data['noErrorEditPost'] ="Your post was successfully edited.";
                
 
                 $main_view = '../views/adlister.php';
@@ -146,6 +149,8 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
+
+                $data['noErrorDeletePost'] = "Your post was successfully deleted.";
 
                 $main_view = '../views/adlister.php';
             }

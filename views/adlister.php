@@ -8,14 +8,31 @@ if(Auth::check()){
 ?>
 
 
+<!-- messages printed out error or notification -->
+<?php
+	//notifications for posts
+	if(!empty($noErrorEditPost)){
+		echo "<div class='alert alert-success text-center'>".$noErrorEditPost."</div>";
+	}else if(!empty($noErrorDeletePost)){
+		echo "<div class='alert alert-success text-center'>".$noErrorDeletePost."</div>";
+	}
 
-<?php 
+	//notifications for edit user
+	if(!empty($noErrorEdit) && empty($errorMessageUserEdit)){
+		echo "<div class='alert alert-success text-center'>".$noErrorEdit."</div>";
+	}
+
+	//error messages
 	if(!empty($errorMessageSignUp)){
 		echo "<div class='alert alert-danger text-center'>".$errorMessageSignUp."</div>";
 	}
 	else if (!empty($errorMessageLogIn)){
 		echo "<div class='alert alert-danger text-center'>".$errorMessageLogIn."</div>";
 	}
+	else if(!empty($errorMessageUserEdit)){
+		echo "<div class='alert alert-danger text-center'>".$errorMessageUserEdit."</div>";
+	}
+	
 ?>
 
 <?php require '../views/ads/index.php'; ?>
