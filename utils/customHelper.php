@@ -404,9 +404,16 @@ function getFilteredPhotos(){
 				$id []= $posts['id'];//save in the array of id's
 
 
-				$result .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
-				$result .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-				$result .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+				// $result .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
+				// $result .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+				// $result .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+				// $result .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+
+				// $i++;
+
+				$result .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>";
+				$result .= "<div class='tdParent' id='tcell" . $i . "'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+				$result .= "<div class='descriptions' id='description" . $i . "'><span class='thePrice'>$" . $posts['price'] . "</span><br>" . $posts['name'] . "<br>" . "<br>" . $posts['description'] . "</div> ";
 				$result .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
 				$i++;
@@ -466,7 +473,7 @@ function getTableFormat($array){
 		}
 		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>";
 		$content .= "<div class='tdParent' id='tcell" . $i . "'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
-		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+		$content .= "<div class='descriptions' id='description" . $i . "'><span class='thePrice'>$" . $posts['price'] . "</span><br>" . $posts['name'] . "<br>" . "<br>" . $posts['description'] . "</div> ";
 		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
 		$i++;
@@ -500,6 +507,30 @@ function getTableFormatTwo($array){
 	$content .= '</table>';
 	return $content;
 }
+
+// function getTableFormat($array){
+// 	$i=0;
+// 	$content ="";
+// 	$content = "<table class='mainTable'>";
+// 	$content .= "<tr>";
+// 	foreach ($array as $posts) {
+		
+// 		if($i % 3 == 0 && $i != 0){
+// 			$content .= "</tr>";
+// 			$content .= "<tr>";
+// 		}
+// 		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>";
+// 		$content .= "<div class='tdParent' id='tcell" . $i . "'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+// 		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+// 		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+
+// 		$i++;
+	
+// 	}
+
+// 	$content .= '</table>';
+// 	return $content;
+// }
 
 
 
