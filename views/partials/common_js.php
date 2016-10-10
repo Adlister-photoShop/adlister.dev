@@ -52,42 +52,44 @@
 
     $(".itemsImg").hover(function() {
         for (var i = 0; i < totalPost; i++) {
-            if ($(this).attr('id') == 'image' + i) {
-                $('#title' + i).stop().animate({
-                    opacity: '0.8',
-                    top: '-302px'
-                }, 400);
+            if ($(this).attr('id') == 'image' + i && $(window).width() > 700) {
+                // $('#title' + i).stop().animate({
+                //     opacity: '0.8',
+                //     bottom: '300px'
+                // }, 400);
                 $('#description' + i).stop().animate({
                     opacity: '0.8',
                     bottom: '0px'
                 }, 400);
-                $('#price' + i).stop().animate({
-                    opacity: '0.8',
-                    right: '-1'
-                }, 400);
+                // $('#price' + i).stop().animate({
+                //     opacity: '0.8',
+                //     right: '-1'
+                // }, 400);
             }
         }
     }, function() {
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
-                $('#title' + i).stop().animate({
-                    opacity: '0',
-                    top: '-312px'
-                }, 300);
+                // $('#title' + i).stop().animate({
+                //     opacity: '0',
+                //     bottom: '-10px'
+                // }, 300);
                 $('#description' + i).stop().animate({
                     opacity: '0',
                     bottom: '-10px'
                 }, 300);
-                $('#price' + i).stop().animate({
-                    opacity: '0',
-                    right: '-11'
-                }, 300);
+                // $('#price' + i).stop().animate({
+                //     opacity: '0',
+                //     right: '-11'
+                // }, 300);
             }
         }
     });
 
+
     $(".itemsImg").click(function() {
         $('.closeShowPhotos').css('display', 'block');
+        $('.openMessage').css('display', 'block');
         $('.over').css('z-index', '1');
         $('.cover').css('display', 'block');
         $('.cover').stop().animate({
@@ -103,10 +105,10 @@
                 $('#imagePhoto' + i).stop().animate({
                     opacity: '1'
                 }, 300);
-                $('#messageShow' + i).stop().animate({
+                $('.closeShowPhotos').stop().animate({
                     opacity: '1'
                 }, 300);
-                $('.closeShowPhotos').stop().animate({
+                $('.openMessage').stop().animate({
                     opacity: '1'
                 }, 300);
             }
@@ -115,6 +117,9 @@
 
     $('.closeShowPhotos').click(function() {
         $('.closeShowPhotos').animate({
+                opacity: '0'
+            }, 300);
+        $('.openMessage').animate({
                 opacity: '0'
             }, 300);
         for (var i = 0; i < totalPost; i++) {
@@ -133,17 +138,35 @@
         setTimeout(function() {
             $('#imagePhoto' + i).css('display', 'none');
             $('.message').css('display', 'none');
+            $('.messageForm').css('display', 'none');
             $('.closeShowPhotos').css('display', 'none');
+            $('.openMessage').css('display', 'none');
             $('.cover').css('display', 'none');
             $('.over').css('z-index', '-1');
+            $('.messageTextArea').val('');
         }, 300);
         }
+    });
+
+    $('.openMessage').click(function() {
+        $('.messageForm').css('display', 'block');
+        $('.message').stop().animate({
+            opacity: '1'
+        }, 300);
+    });
+
+    $('.messageForm').submit(function(ev) { 
+        $('.message').animate({
+            opacity: '0'
+        }, 500);
     });
 
     $(".tdParent").click(function() {
         for (var i = 0; i < totalUserPosts; i++) {
             if ($(this).attr('id') == 'cell' + i) {
                 $('.userPhotos').css('display', 'none');
+                $('.userPhotos').css('opacity', '0');
+                $('.profileBack').css('display', 'block');
                 $('.profileEdit').css('display', 'none');
                 $('#editUserPhoto' + i).css('display', 'block');
                 $('#editUserPhoto' + i).animate({
@@ -155,40 +178,61 @@
 
     $('.logInShow').click(function() {
         $('.signUp').css('display', 'none');
-        $('.signUpShow').css('backgroundColor', '#eee');
-        $('.logInShow').css('backgroundColor', '#336699');
+        $('.signUpShow').css('color', '#ddd');
+        $('.logInShow').css('color', '#336699');
         $('.logIn').css('display', 'block');
         $('.logIn').animate({
             opacity: '1'
-        }, 600);
+        }, 500);
         $('.signUp').animate({
             opacity: '0'
-        }, 600);
+        }, 500);
     });
 
     $('.signUpShow').click(function() {
         $('.logIn').css('display', 'none');
-        $('.signUpShow').css('backgroundColor', '#336699');
-        $('.logInShow').css('backgroundColor', '#eee');
+        $('.signUpShow').css('color', '#336699');
+        $('.logInShow').css('color', '#ddd');
         $('.signUp').css('display', 'block');
         $('.signUp').animate({
             opacity: '1'
-        }, 600);
+        }, 500);
         $('.logIn').animate({
             opacity: '0'
-        }, 600);
+        }, 500);
     });
 
     $('.profileEdit').click(function() {
         $('.userPhotos').css('display', 'none');
         $('.profileEdit').css('display', 'none');
+        $('.profileBack').css('display', 'block');
         $('.editAcc').css('display', 'block');
         $('.editAcc').animate({
             opacity: '1'
-        }, 600);
+        }, 500);
         $('.userPhotos').animate({
             opacity: '0'
-        }, 600);
+        }, 500);
+    });
+
+    $('.profileBack').click(function() {
+        $('.profileBack').css('display', 'none');
+        $('.userPhotos').css('display', 'block');
+        $('.profileEdit').css('display', 'block');
+        $('.editAcc').css('display', 'none');
+        $('.editUserPhotos').css('display', 'none');
+        $('.editAcc').animate({
+            opacity: '0'
+        }, 500);
+        $('.editUserPhotos').animate({
+            opacity: '0'
+        }, 500);
+        $('.userPhotos').animate({
+            opacity: '1'
+        }, 500);
+        setTimeout(function() {
+
+        })
     });
 
 
@@ -197,5 +241,6 @@
     animationInClick('.hamburger', '.sideText', 'slideInLeft', '1');
     animationOutClick('.logInExit', '.sideText', 'fadeOutLeft');
     animationHover('.hamburger', 'rubberBand');
+    animationHover('.logInExit', 'rubberBand');
 
 </script>

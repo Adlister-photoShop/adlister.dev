@@ -16,7 +16,6 @@ table {
 td {
 	padding: 1px;
 	overflow: hidden;
-	width: 33.4%;
 }
 
 h4 {
@@ -121,10 +120,17 @@ button {
 
 .itemsImg {
 	width: 100%;
-	min-width: 100%;
-	height: 300px;
+	min-width: 50%;
+	height: auto;
 	cursor: pointer;
 
+}
+
+.itemsImgTwo {
+	width: 100%;
+	min-width: 100%;
+	height: auto;
+	cursor: pointer;
 }
 
 .items {
@@ -133,12 +139,14 @@ button {
 
 .logInParent {
 	position: relative;
-	top: 100px;
+	top: 60px;
 	width: 350px;
-	height: 350px;
+	height: 200px;
 	text-align: center;
 	padding-top: 10px;
-	margin: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0px;
 
 }
 
@@ -164,6 +172,14 @@ button {
 	width: 250px;
 }
 
+.searchTwo {
+	position: relative;
+	top: 0px;
+	margin: auto;
+	text-align: center;
+	width: 250px;
+}
+
 .inputs {
 	border: 2px solid #888;
 	border-radius: 5px;
@@ -174,37 +190,39 @@ button {
 
 .logInShow {
 	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 50%;
-	height: 50px;
-	background-color: #336699;
+	color: #336699;
+	top: 20px;
+	left: 40px;
+	width: 30%;
+	height: 30px;
 	border: none;
-	border-right: 1px solid #888;
+	background-color: transparent;
 	border-bottom: 1px solid #888;
 	outline: none;
 }
 
 .signUpShow {
 	position: absolute;
-	right: 0px;
-	top: 0px;
-	width: 50%;
-	height: 50px;
-	background-color: #eee;
+	color: #ddd;
+	right: 40px;
+	top: 20px;
+	width: 30%;
+	height: 30px;
+	background-color: transparent;
 	border: none;
 	border-bottom: 1px solid #888;
 	outline: none;
 }
 
 .logInBtn {
-	background-color: #ddd;
+	background-color: #eee;
 	border: 2px solid #888;
 	border-radius: 5px;
 	width: 100px;
 	outline: none;
 	margin-top: 10px;
 	display: inline-block;
+	margin: auto;
 }
 
 .logInExit {
@@ -272,13 +290,11 @@ ul {
 .hline {
 	position: relative;
 	text-align: center;
-
-	/*left: 110px;*/
 	width: 130px;
 	height: 1px;
-	background-color: #666;
-	margin-top: 35px;
-	margin-bottom: 30px;
+	background-color: #bbb;
+	margin-top: 20px;
+	margin-bottom: 15px;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -311,18 +327,21 @@ ul {
 
 .tdParent {
 	position: relative;
+
 }
 
 .titles {
 	opacity: 0;
 	display: block;
 	position: absolute;
-	top: -312px;
+	bottom: -10px;
 	color: #ddd;
 	pointer-events: none;
 	background-color: #111;
 	width: 100%;
 	padding: 5px;
+	margin: 0;
+	text-align: center;
 }
 
 .descriptions {
@@ -336,6 +355,7 @@ ul {
 	width: 100%;
 	padding: 5px;
 	margin: 0;
+	text-align: center;
 }
 
 .prices {
@@ -344,10 +364,11 @@ ul {
 	position: absolute;
 	right: -11px;
 	color: #ddd;
-	bottom: 242px;
+	bottom: 244px;
 	pointer-events: none;
 	background-color: #090;
 	padding: 5px;
+	text-align: center;
 }
 
 .editUserPhotos {
@@ -388,19 +409,22 @@ ul {
 	height: auto;
 	position: fixed;
     left: 50%;
-    top: 100px;
+    top: 150px;
     transform: translate(-50%, 0);
     opacity: 0;
     display: none;
     z-index: 2;
+    text-align: center;
+}
+
+.messageForm {
+	display: none;
 }
 
 .over {
 	position: relative;
 	z-index: -1;
 }
-
-
 
 .showImagePhoto {
 	border: 3px solid #fff;
@@ -417,16 +441,43 @@ ul {
 }
 
 .closeShowPhotos {
-	background-color: #fff;
 	padding: 5px;
 	z-index: 4;
 	opacity: 0;
     display: none;
-	position: fixed;
-    left: 50%;
-    top: -28px;
-    transform: translate(-50%, 0);
+	position: absolute;
+    right: 70px;
+    top: -30px;
+    /*transform: translate(-50%, 0);*/
     cursor: pointer;
+    color: #ddd;
+    background-color: #111;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 1.6em;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.openMessage {
+	padding: 5px;
+	z-index: 4;
+	opacity: 0;
+    display: none;
+	position: absolute;
+    left: 70px;
+    top: -30px;
+    /*transform: translate(-50%, 0);*/
+    cursor: pointer;
+    color: #ddd;
+    background-color: #111;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 1.6em;
+    text-align: center;
+    padding-top: 10px;
 }
 
 .cover {
@@ -437,6 +488,26 @@ ul {
 	background-color: #111;
 	opacity: 0;
 	display: none;
+}
+
+.deleteBtn {
+	background-color: #ff5050;
+	width: 70%;
+}
+
+.profileBack {
+	display: none;
+	color: #999;
+}
+
+.profileEdit {
+	display: block;
+	color: #999;
+}
+
+.thePrice {
+	color: green;
+	font-weight: bold
 }
 
 .item {

@@ -13,7 +13,7 @@ $user->save();
 
 $user = new User;
 $user->name = 'Michael Truong';
-$user->email = 'truong.mike@yahoo.com';
+$user->email = 'michael.d.truong@icloud.com';
 $user->username = "michael";
 $user->password = "codeup";
 $user->save();

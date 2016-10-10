@@ -9,6 +9,7 @@
     <button class="logInExit">X</button>
     <div class="nbarUserName">Hello, <?=$name?></div>
     <div class="logout"><a href="logout">Log Out</a></div>
+    <div class="hline"></div>
     
     <div><a class="showProfile" data-toggle="modal" data-target="#userAccount">Profile</a></div>
     <div><a class="showPost" data-toggle="modal" data-target="#postPhoto">Post Photo</a></div>
@@ -19,7 +20,6 @@
         <button type="submit" hidden></button>
     </form>
 
-    <div class="hline"></div>
 
     <div class="list">
 
