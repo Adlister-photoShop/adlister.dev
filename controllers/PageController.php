@@ -31,10 +31,11 @@ function pageController()
         case '/':
             $data['login'] = logInFunction();
             //error for log in
-            $data['errorMessage'] = !empty($data['login'])? $data['login']:"";
-            var_dump($data['login']);
+            $data['errorMessageLogIn'] = !empty($data['login'])? $data['login']:"";
+            // var_dump($data['login']);
             $data['signUp'] = signUpFunction();
-            $data['errorMessage'] = !empty($data['signUp'])? $data['signUp']:"";
+            //error signup
+            $data['errorMessageSignUp'] = !empty($data['signUp'])? $data['signUp']:"";
 
             $data['tablePhotos'] = getPhotos();
             $main_view = '../views/adlister.php';
@@ -87,8 +88,11 @@ function pageController()
         case '/userEdit':
             if(Auth::check()){
                 $data['updateUser'] = updateUser();
-
-                $data['errorMessage'] = !empty($data['updateUser'])? $data['updateUser']:"";
+                //error message
+                $data['errorMessageUserEdit'] = !empty($data['updateUser'])? $data['updateUser']:"";
+                //success message
+                if(empty($data['updateUser']))
+                    $data['noErrorEdit'] = "User successfully edited.";
 
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
@@ -127,7 +131,7 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
-
+                $data['noErrorEditPost'] ="Your post was successfully edited.";
                
 
                 $main_view = '../views/adlister.php';
@@ -145,6 +149,8 @@ function pageController()
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
+
+                $data['noErrorDeletePost'] = "Your post was successfully deleted.";
 
                 $main_view = '../views/adlister.php';
             }
