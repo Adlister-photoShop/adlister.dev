@@ -88,6 +88,7 @@
 
     $(".itemsImg").click(function() {
         $('.closeShowPhotos').css('display', 'block');
+        $('.openMessage').css('display', 'block');
         $('.over').css('z-index', '1');
         $('.cover').css('display', 'block');
         $('.cover').stop().animate({
@@ -103,10 +104,10 @@
                 $('#imagePhoto' + i).stop().animate({
                     opacity: '1'
                 }, 300);
-                $('#messageShow' + i).stop().animate({
+                $('.closeShowPhotos').stop().animate({
                     opacity: '1'
                 }, 300);
-                $('.closeShowPhotos').stop().animate({
+                $('.openMessage').stop().animate({
                     opacity: '1'
                 }, 300);
             }
@@ -115,6 +116,9 @@
 
     $('.closeShowPhotos').click(function() {
         $('.closeShowPhotos').animate({
+                opacity: '0'
+            }, 300);
+        $('.openMessage').animate({
                 opacity: '0'
             }, 300);
         for (var i = 0; i < totalPost; i++) {
@@ -134,10 +138,17 @@
             $('#imagePhoto' + i).css('display', 'none');
             $('.message').css('display', 'none');
             $('.closeShowPhotos').css('display', 'none');
+            $('.openMessage').css('display', 'none');
             $('.cover').css('display', 'none');
             $('.over').css('z-index', '-1');
         }, 300);
         }
+    });
+
+    $('.openMessage').click(function() {
+        $('.message').stop().animate({
+            opacity: '1'
+        }, 300);
     });
 
     $(".tdParent").click(function() {

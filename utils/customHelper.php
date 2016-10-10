@@ -98,7 +98,7 @@ function getShowPhoto($case='normal'){
 	
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
-		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='openMessage'>&#128157</div><div class='closeShowPhotos'>CLOSE &#10008</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
+		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='openMessage'>Message</div><div class='closeShowPhotos'>CLOSE &#10008</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
 
 		$i++;
 	}
@@ -113,7 +113,7 @@ function getShowMessage(){
 	foreach ($arrayOfPosts as $posts) {
 		$content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='messageForm' target='frame' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
 		$content .= "<input type='hidden' name='name' placeholder='Your Contact Info' class='inputs'>";
-		$content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs'></textarea><br><button type='submit'>Send</button></form></div>";
+		$content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs'></textarea><br><button type='submit' hidden>Send</button></form></div>";
 
 		$i++;
 	}

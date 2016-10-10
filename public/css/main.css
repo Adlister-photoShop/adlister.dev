@@ -135,7 +135,7 @@ button {
 	position: relative;
 	top: 100px;
 	width: 350px;
-	height: 350px;
+	height: 250px;
 	text-align: center;
 	padding-top: 10px;
 	margin: auto;
@@ -198,13 +198,14 @@ button {
 }
 
 .logInBtn {
-	background-color: #ddd;
+	background-color: #eee;
 	border: 2px solid #888;
 	border-radius: 5px;
 	width: 100px;
 	outline: none;
 	margin-top: 10px;
 	display: inline-block;
+	margin: auto;
 }
 
 .logInExit {
@@ -323,6 +324,7 @@ ul {
 	background-color: #111;
 	width: 100%;
 	padding: 5px;
+	text-align: center;
 }
 
 .descriptions {
@@ -336,6 +338,7 @@ ul {
 	width: 100%;
 	padding: 5px;
 	margin: 0;
+	text-align: center;
 }
 
 .prices {
@@ -344,10 +347,11 @@ ul {
 	position: absolute;
 	right: -11px;
 	color: #ddd;
-	bottom: 242px;
+	bottom: 244px;
 	pointer-events: none;
 	background-color: #090;
 	padding: 5px;
+	text-align: center;
 }
 
 .editUserPhotos {
@@ -393,6 +397,7 @@ ul {
     opacity: 0;
     display: none;
     z-index: 2;
+    text-align: center;
 }
 
 .over {
@@ -428,15 +433,16 @@ ul {
 }
 
 .openMessage {
+	padding: 5px;
 	z-index: 4;
-	opacity: 1;
-    display: block;
-	position: fixed;
-    left: 45%;
-    top: -28px;
-    transform: translate(-50%, 0);
+	opacity: 0;
+    display: none;
+	position: absolute;
+    right: 60px;
+    top: -30px;
+    /*transform: translate(-50%, 0);*/
     cursor: pointer;
-    font-size: 2em;
+    color: #ddd;
 }
 
 .cover {
