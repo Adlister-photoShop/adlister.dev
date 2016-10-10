@@ -30,7 +30,8 @@ function signUpFunction(){
 			}
 		}
 		else{
-			return "Check for empty inputs below.";
+			return;
+			// return "Check for empty inputs below.";
 		}
 	}
 }
@@ -80,6 +81,15 @@ function getShowPhoto($case='normal'){
 			break;
 		case 'normal':
 			$arrayOfPosts = $posts->getAllPosts();
+			break;
+
+		case 'search':
+			$word = Input::get('searchText');
+			
+			$array = Post::getFilteredResults($word);
+
+			$arrayOfPosts = getSingleArrayForSearch($array);
+			
 			break;
 		default:
 			$arrayOfPosts = $posts->getAllPosts();
@@ -334,21 +344,43 @@ function editPost(){
 	}
 }
 
+function getSingleArrayForSearch($arrays){
+	$result=[];
+	$id=[];
+	foreach ($arrays as $array) {
+		foreach ($array as $posts) {
+
+			for ($i=0; $i < count($id); $i++) {
+					if($id[$i] == $posts['id']){
+						$i++;
+						continue 2;
+					}
+				}
+				//if we didn't have that id in the array now we do
+				$id []= $posts['id'];//save in the array of id's
+				$result[] = $posts;
+
+			}	
+	}
+	return $result;
+}
 
 function getFilteredPhotos(){
 	if($_POST){
 		$content = [];
 		$i =0;
 		$result="";
+
 		$word = Input::get('searchText');
 
 		$content = Post::getFilteredResults($word);
 		
+
+
 		$result = "<table class='mainTable'>";
 		$result .= "<tr>";
 
-		// $newArr = unique_multidim_array($content, 'id');
-		// var_dump($content);
+
 		$id=[];
 		foreach ($content as $arrays) {
 

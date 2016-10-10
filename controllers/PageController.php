@@ -23,14 +23,18 @@ function pageController()
         $request = $_SERVER['REQUEST_URI'];
     }
 
-
-
+    //variable that will spit out the errors
+    $data['errorMessage'] = "";
 
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
             $data['login'] = logInFunction();
+            //error for log in
+            $data['errorMessage'] = !empty($data['login'])? $data['login']:"";
+            var_dump($data['login']);
             $data['signUp'] = signUpFunction();
+            $data['errorMessage'] = !empty($data['signUp'])? $data['signUp']:"";
 
             $data['tablePhotos'] = getPhotos();
             $main_view = '../views/adlister.php';
@@ -47,6 +51,7 @@ function pageController()
 
         case '/adlister':
             if(Auth::check()){
+                
                 // $data['tableUserPosts'] = tableUserPosts();
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
@@ -55,6 +60,7 @@ function pageController()
                 //
                 
             }else{
+
                 $main_view = '../views/ps_login.php';
             }
             break;
@@ -81,6 +87,9 @@ function pageController()
         case '/userEdit':
             if(Auth::check()){
                 $data['updateUser'] = updateUser();
+
+                $data['errorMessage'] = !empty($data['updateUser'])? $data['updateUser']:"";
+
                 $data['tablePhotos'] = getPhotos();
                 $main_view = '../views/adlister.php';
                 //
@@ -150,8 +159,9 @@ function pageController()
                 $data['tablePhotos'] = getFilteredPhotos();
 
                 //
-                $data['arraySort'] = getShowPhoto();
+                $data['arraySort'] = getShowPhoto('search');
                 //
+                // var_dump($data['arraySort']);
 
                 //
                 $data['arrayCount'] = Post::getNumberOfPosts();
