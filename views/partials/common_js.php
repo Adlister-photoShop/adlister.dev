@@ -197,5 +197,6 @@
     animationInClick('.hamburger', '.sideText', 'slideInLeft', '1');
     animationOutClick('.logInExit', '.sideText', 'fadeOutLeft');
     animationHover('.hamburger', 'rubberBand');
+    animationHover('.logInExit', 'rubberBand');
 
 </script>

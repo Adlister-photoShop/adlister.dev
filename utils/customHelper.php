@@ -88,7 +88,7 @@ function getShowPhoto($case='normal'){
 	
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
-		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='closeShowPhotos'>CLOSE X</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
+		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='openMessage'>&#128157</div><div class='closeShowPhotos'>CLOSE &#10008</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
 
 		$i++;
 	}

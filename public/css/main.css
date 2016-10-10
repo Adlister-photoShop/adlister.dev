@@ -388,7 +388,7 @@ ul {
 	height: auto;
 	position: fixed;
     left: 50%;
-    top: 100px;
+    top: 150px;
     transform: translate(-50%, 0);
     opacity: 0;
     display: none;
@@ -399,8 +399,6 @@ ul {
 	position: relative;
 	z-index: -1;
 }
-
-
 
 .showImagePhoto {
 	border: 3px solid #fff;
@@ -417,16 +415,28 @@ ul {
 }
 
 .closeShowPhotos {
-	background-color: #fff;
 	padding: 5px;
 	z-index: 4;
 	opacity: 0;
     display: none;
+	position: absolute;
+    right: -30px;
+    top: -30px;
+    /*transform: translate(-50%, 0);*/
+    cursor: pointer;
+    color: #ddd;
+}
+
+.openMessage {
+	z-index: 4;
+	opacity: 1;
+    display: block;
 	position: fixed;
-    left: 50%;
+    left: 45%;
     top: -28px;
     transform: translate(-50%, 0);
     cursor: pointer;
+    font-size: 2em;
 }
 
 .cover {
