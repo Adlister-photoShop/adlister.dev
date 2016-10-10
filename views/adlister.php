@@ -9,7 +9,15 @@ if(Auth::check()){
 
 
 
-<?php var_dump($errorMessage);?>
+<?php 
+	if(!empty($errorMessageSignUp)){
+		echo "<div class='alert alert-danger text-center'>".$errorMessageSignUp."</div>";
+	}
+	else{
+		echo "<div class='alert alert-danger text-center'>".$errorMessageLogIn."</div>";
+	}
+?>
+
 <?php require '../views/ads/index.php'; ?>
 <?php require '../views/users/account.php'; ?>
 <?php require '../views/ads/create.php'; ?>
