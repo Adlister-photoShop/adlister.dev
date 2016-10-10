@@ -160,11 +160,11 @@ function updateUser(){
 					
 				}
 				else{
-					return "Current password not found.";
+					return "Current password does not match.";
 				}
 			}
 			else{
-				return "Passwords do not match.";
+				return "New passwords do not match.";
 			}
 
 		}
