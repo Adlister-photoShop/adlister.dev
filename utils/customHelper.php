@@ -69,16 +69,14 @@ function getShowPhoto($case='normal'){
 
 	switch ($case) {
 		case 'sort':
-			echo"sort case";
 			//getting special array for sort
 			$arrayOfPosts = getArraySort(Input::get('sort'));
-			var_dump($arrayOfPosts);
+			// var_dump($arrayOfPosts);
 			break;
 		case 'category':
-			echo "category case";
 			//getting special array for category
 			$arrayOfPosts = getCategory();
-			var_dump($arrayOfPosts);
+			// var_dump($arrayOfPosts);
 			break;
 		case 'normal':
 			$arrayOfPosts = $posts->getAllPosts();
@@ -103,8 +101,8 @@ function getShowMessage(){
 	$arrayOfPosts = $posts->getAllPosts();
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
-		$content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='messageForm' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
-		$content .= "<input type='text' name='name' placeholder='Your Contact Info' class='inputs' required='true'>";
+		$content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='messageForm' target='frame' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
+		$content .= "<input type='hidden' name='name' placeholder='Your Contact Info' class='inputs'>";
 		$content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs'></textarea><br><button type='submit'>Send</button></form></div>";
 
 		$i++;

@@ -7,7 +7,7 @@
 </div>
 <div class="sideText">
     <button class="logInExit">X</button>
-    <div class="showProfile">Hello <?=$name?></div>
+    <div class="nbarUserName">Hello, <?=$name?></div>
     <div class="logout"><a href="logout">Log Out</a></div>
     
     <div><a class="showProfile" data-toggle="modal" data-target="#userAccount">Profile</a></div>
@@ -15,82 +15,81 @@
     <div class="hline"></div>
 
     <form method="POST" class="search" action="/searchBar">
-        <input type="text" name="searchText">
-        <button type="submit">Search</button>
+        <input type="text" name="searchText" placeholder="Search" class="inputs">
+        <button type="submit" hidden></button>
     </form>
 
-    <div class="showPost">Catagories</div>
+    <div class="hline"></div>
+
     <div class="list">
-        <ul>
+
             <form method="POST" action="/">
             <input type="hidden" value="animals" name="animals">
-            <li><button class="cat" type="submit">All</button></li>
+            <div><button class="cat" type="submit">All</button></div>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="animals" name="animals">
-            <li><button class="cat" type="submit">Animals</button></li>
+            <div><button class="cat" type="submit">Animals</button></div>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="architectural" name="architectural">
-            <li><button class="cat" type="submit">Architectural</button></li>
+            <div><button class="cat" type="submit">Architectural</button></div>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="cars" name="cars">
-            <li><button class="cat" type="submit">Cars</button></li>
+            <div><button class="cat" type="submit">Cars</button></div>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="nature" name="nature">
-            <li><button class="cat" type="submit">Nature</button></li>
+            <div><button class="cat" type="submit">Nature</button></div>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="portraits" name="portraits">
-            <li><button class="cat" type="submit">Portraits</button></li>
+            <div><button class="cat" type="submit">Portraits</button></div>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="sports" name="sports">
-            <li><button class="cat" type="submit">Sports</button></li>
+            <div><button class="cat" type="submit">Sports</button></div>
             </form>
 
             <form method="POST" action="category">
             <input type="hidden" value="other" name="other">
-            <li><button class="cat" type="submit">Other</button></li>
+            <div><button class="cat" type="submit">Other</button></div>
             </form>
 
-        </ul>
     </div>
     <div class="hline"></div>
-    <div class="showPost">Sort By</div>
     <div class="list">
-        <ul>
+
             <form method="POST" action="sort">
                 <input type="hidden" value="price" name="sortA">
                 
-                <li><button class="cat" type="submit">Lowest Price</button></li>
+                <div><button class="cat" type="submit">Lowest Price</button></div>
             </form>
 
             <form method="POST" action="sort">
                 <input type="hidden" value="price" name="sortD">
 
-                <li><button class="cat" type="submit">Highest Price</button></li>
+                <div><button class="cat" type="submit">Highest Price</button></div>
             </form>
 
             <form method="POST" action="sort">
                 <input type="hidden" value="date_posted" name="sortD">
 
-                 <li><button class="cat" type="submit">Newest</button></li>
+                 <div><button class="cat" type="submit">Newest</button></div>
             </form>
 
             <form method="POST" action="sort">
                 <input type="hidden" value="date_posted" name="sortA">
                
-                <li><button class="cat" type="submit">Oldest</button></li>
+                <div><button class="cat" type="submit">Oldest</button></div>
             </form>
-        </ul>
+
     </div>
 </div>

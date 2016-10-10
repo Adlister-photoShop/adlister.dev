@@ -54,13 +54,16 @@
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
                 $('#title' + i).stop().animate({
-                    opacity: '1'
+                    opacity: '0.8',
+                    top: '-302px'
                 }, 400);
                 $('#description' + i).stop().animate({
-                    opacity: '1'
+                    opacity: '0.8',
+                    bottom: '0px'
                 }, 400);
                 $('#price' + i).stop().animate({
-                    opacity: '1'
+                    opacity: '0.8',
+                    right: '-1'
                 }, 400);
             }
         }
@@ -68,13 +71,16 @@
         for (var i = 0; i < totalPost; i++) {
             if ($(this).attr('id') == 'image' + i) {
                 $('#title' + i).stop().animate({
-                    opacity: '0'
+                    opacity: '0',
+                    top: '-312px'
                 }, 300);
                 $('#description' + i).stop().animate({
-                    opacity: '0'
+                    opacity: '0',
+                    bottom: '-10px'
                 }, 300);
                 $('#price' + i).stop().animate({
-                    opacity: '0'
+                    opacity: '0',
+                    right: '-11'
                 }, 300);
             }
         }
