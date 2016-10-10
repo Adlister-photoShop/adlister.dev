@@ -1,4 +1,4 @@
- 
+
 <div class="nbar animated fadeInDown">
     <div class="hamburger">&#9776</div>
 </div>
@@ -20,7 +20,7 @@
                 <form method="POST" id="logIn" action="/">
                     <input type="email" name="email" placeholder="Email" class="inputs" autofocus>
                     <input type="password" name="password" placeholder="Password" class="inputs">
-                    <button type="submit" class="logInBtn">Log in</button>
+                    <button type="submit" hidden>Log in</button>
                 </form>
             </div>
 
@@ -30,7 +30,7 @@
                     <input type="email" name="email" placeholder="Email" class="inputs" required="true">
                     <input type="password" name="password" placeholder="Password" class="inputs" required="true">
                     <input type="password" name="conPassword" placeholder="Confirm Password" class="inputs" required="true">
-                    <button type="submit" class="logInBtn">Sign Up</button>
+                    <button type="submit" hidden>Sign Up</button>
                 </form>
             </div>
         </div>
@@ -38,15 +38,15 @@
 
 
 
-
+    <br>
+    <br>
     <div class="hline"></div>
 
-    <form method="POST" class="search" action="/searchBar">
+    <form method="POST" class="searchTwo" action="/searchBar">
         <input type="text" name="searchText" placeholder="Search" class="inputs">
         <button type="submit" hidden></button>
     </form>
     
-    <div class="hline"></div>
 
     <div class="list">
 

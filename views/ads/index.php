@@ -12,4 +12,4 @@
 	<?= getShowMessage() ?>
 </div>
 
-<input id="totalPost" type="text" value=<?= Post::getNumberOfPosts() ?>>
+<input id="totalPost" type="hidden" value=<?= Post::getNumberOfPosts() ?>>

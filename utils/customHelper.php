@@ -58,7 +58,7 @@ function getPhotos(){
 	$posts = new Post();
 	$arrayOfPosts = $posts->getAllPosts();
 
-	$content = getTableFormat($arrayOfPosts);
+	$content = getTableFormatTwo($arrayOfPosts);
 	
 	return $content;
 }
@@ -98,7 +98,7 @@ function getShowPhoto($case='normal'){
 	
 	$content = "";
 	foreach ($arrayOfPosts as $posts) {
-		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='openMessage'>Message</div><div class='closeShowPhotos'>CLOSE &#10008</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
+		$content .= "<div class='showImage' id='showImageId" . $i . "'><div class='openMessage'>M</div><div class='closeShowPhotos'>X</div><img src='" . $posts['image_url'] . "' class='showImagePhoto' id='imagePhoto" . $i ."'></div>";
 
 		$i++;
 	}
@@ -113,7 +113,7 @@ function getShowMessage(){
 	foreach ($arrayOfPosts as $posts) {
 		$content .= "<div class='message' id='messageShow" . $i . "'><form method='POST' class='messageForm' target='frame' action='https://formspree.io/".User::getUserEmail($posts['user_id'])."'>";
 		$content .= "<input type='hidden' name='name' placeholder='Your Contact Info' class='inputs'>";
-		$content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs'></textarea><br><button type='submit' hidden>Send</button></form></div>";
+		$content .= "<textarea name='formMessage' placeholder='Your Message' class='inputs messageTextArea'></textarea><br><button type='submit' class='logInBtn'>Send</button></form></div>";
 
 		$i++;
 	}
@@ -210,7 +210,7 @@ function tableUserPosts(){
  			$content .= "<tr>";
  		}
  		$content .= "<td><div class='tdParent' id='cell" . $i . "'>";
- 		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImg showEditPost' id='userImage" . $i ."'></div></td>";
+ 		$content .= "<img src='" . $posts['image_url'] . "' class='itemsImgTwo showEditPost' id='userImage" . $i ."'></div></td>";
  
  		$i++;
   	
@@ -235,8 +235,8 @@ function userPostsEdit(){
 		$content .= "<input type='hidden' name='id' value='" . $posts['id'] . "'><input type='text' name='name' placeholder='Title' value='".$posts['name']."'' class='inputs' required='true'><input type='number' name='price' value=".$posts['price']. " placeholder='Asking Price' class='inputs' required='true'>";
 		$content .= "<textarea name='description'  placeholder='Description' class='inputs'>".$posts['description']."</textarea><label for='catagories'>What is the Genre of your photo?</label>";
 		$content .= "<select class='catagories' name='category'><option value='animals'>Animals</option><option value='architectural' selected>Architectural</option><option value='cars'>Cars</option>";
-		$content .= "<option value='nature' selected>Nature</option><option value='portraits'>Portraits</option><option value='sports' selected>Sports</option><option value='other' selected>Other</option></select><br><button type='submit' class='logInBtn'>Edit</button></form>";
-		$content .= "<form method='POST' action='editDelete'><input type='hidden' name='id' value='" . $posts['id'] . "'><button type='submit' class='editPostBtn'>Delete</button></form></div>";
+		$content .= "<option value='nature' selected>Nature</option><option value='portraits'>Portraits</option><option value='sports' selected>Sports</option><option value='other' selected>Other</option></select><br><button type='submit' class='logInBtn'>Edit</button></form><br><br>";
+		$content .= "<form method='POST' action='editDelete'><input type='hidden' name='id' value='" . $posts['id'] . "'><button type='submit' class='logInBtn deleteBtn'>Delete</button></form></div>";
 
 		$i++;
 	
@@ -312,7 +312,7 @@ function getCategory(){
 function showCategory($array){
 	$posts = new Post();
 
-	$content = getTableFormat($array);
+	$content = getTableFormatTwo($array);
 	
 	return $content;
 }
@@ -444,7 +444,7 @@ function getSortedPhotos($sortBy){
 		return "Error in sort";
 	}
 
-	$result = getTableFormat($content);
+	$result = getTableFormatTwo($content);
 
 
 
@@ -464,9 +464,33 @@ function getTableFormat($array){
 			$content .= "</tr>";
 			$content .= "<tr>";
 		}
-		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>" . " ";
-		$content .= "<div class='tdParent'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>";
+		$content .= "<div class='tdParent' id='tcell" . $i . "'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
 		$content .= "<div class='descriptions' id='description" . $i . "'>" . $posts['description'] . "</div> ";
+		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
+
+		$i++;
+	
+	}
+
+	$content .= '</table>';
+	return $content;
+}
+
+function getTableFormatTwo($array){
+	$i=0;
+	$content ="";
+	$content = "<table class='mainTable'>";
+	$content .= "<tr>";
+	foreach ($array as $posts) {
+		
+		if($i % 3 == 0 && $i != 0){
+			$content .= "</tr>";
+			$content .= "<tr>";
+		}
+		$content .= "<td><img src='" . $posts['image_url'] . "' class='itemsImg item' id='image" . $i ."'>";
+		$content .= "<div class='tdParent' id='tcell" . $i . "'><div class='titles' id='title" . $i . "'>". $posts['name'] ."</div> ";
+		$content .= "<div class='descriptions' id='description" . $i . "'><span class='thePrice'>$" . $posts['price'] . "</span><br>" . $posts['name'] . "<br>" . "<br>" . $posts['description'] . "</div> ";
 		$content .= "<div class='prices' id='price" . $i . "'>$" . $posts['price'] ."</div></div></td>";
 
 		$i++;

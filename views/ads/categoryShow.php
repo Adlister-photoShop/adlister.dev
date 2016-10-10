@@ -3,5 +3,13 @@
         <?= $category ?>
     </div>
 </div>
+<div class='over'>
+<!-- <?= getShowPhoto() ?> -->
+<?= $arraySort ?>
 
-<input id="totalPost" type="text" value=<?= Post::getNumberOfPosts() ?>>
+</div>
+<div class='messageOver'>
+	<?= getShowMessage() ?>
+</div>
+
+<input id="totalPost" type="hidden" value=<?= Post::getNumberOfPosts() ?>>

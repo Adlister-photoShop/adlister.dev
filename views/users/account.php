@@ -7,11 +7,11 @@
         </button>
         <h4 class="modal-title" id="myModalLabel">Account</h4>
         <a class="profileEdit">Edit</a>
+        <a class="profileBack">Back</a>
       </div>
       <div class="modal-body">
         
         <div class="container-fluid userPhotos">
-            Your Photos
             <?=$tableUserPosts?>
         </div>
 
