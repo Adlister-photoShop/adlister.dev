@@ -125,9 +125,9 @@ function pageController()
 
         case '/editPost':
             if(Auth::check()){
-                $data['tablePhotos'] = getPhotos();
-
                 $data['editPost'] = editPost();//make
+
+                $data['tablePhotos'] = getPhotos();
                 //
                 $data['arraySort'] = getShowPhoto();
                 //
